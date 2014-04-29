@@ -1,0 +1,55 @@
+SlenderBoy
+
+Diálogo 1:
+
+	Snif... Snif...  Ho-Hola. Soy Slender Boy. Mi papá es Slender Man. E-Es como yo, pero mu-mucho mas alto. ¿Lo has visto?
+
+
+Respuestas al diálogo 1:
+
+	[1] Si, estaba por ahí. 
+	[2] No, lo siento.
+	[3] No lo recuerdo.
+
+
+Consecuencias de la respuesta:
+	
+	[1] El laberinto gira 270º - 3 cuartos de vuelta
+	[2] El laberinto dira 90º  - 1 cuartos de vuelta
+	[3] El laberinto gira 180º - 2 cuartos de vuelta
+
+
+Diálogo 2 [según la respuesta de antes]:
+
+	[1] ¡¿Sí?! ¡¿Está bien?! ¡¿Dónde lo viste?! ¡¿Iba persiguiendo a alguien?! ¡¿Hace cuánto tiempo?!
+
+	[2] ... [salto de línea]
+            ... [salto de línea]
+	    Snif... snif...
+	    ¡Qué desgraciado soy! Alguien me roba mis dibujos del bosque, mi papá me deja solo para ir a buscar a esas malas personas y encima me pierdo en esta cueva extraña. Buaaaaa...
+
+	[3] Jo. Pues vaya...
+
+Respuestas al diálogo 2:
+
+	[a] Tranquilo, tranquilo. Si le veo le aviaré de que estás aqui.
+	[b] En algún momento vendrá a buscarte. (...o no.)
+
+Consecuencias de la respuesta 2:
+
+	[a] El laberinto gira en el sentido de las agujas del reloj.
+	[b] El laberinto gira en el sentido contrario de las agujas del reloj
+	
+
+Dialogo final:
+
+	¿En serio? ¡Gracias! ¿Te puedo llamar amigo? Pues por ser mi amigo y ayudarme, te regalo este Orbe Sombra que encontré cuando perdí a papá.
+
+Dialogos siguientes: 
+	Recuerda avisarle. Muchas gracias.
+
+
+
+
+
+
