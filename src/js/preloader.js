@@ -19,6 +19,7 @@
       this.load.image('gokusito', 'assets/goku.png');
       this.load.image('textBox', 'assets/textElements/cajaDeTexto.png');
       this.load.image('unicornioPeta', 'assets/characters/unicornio/unicornioPeta.png');
+      this.load.image('slenderBoy', 'assets/characters/slender/slenderBoy.png');
     },
 
     create: function () {
