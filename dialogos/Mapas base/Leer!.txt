@@ -1,0 +1,13 @@
+1) Cada cuadradito del mapa debe ser de 320x320px. 
+
+2) Los tiles no están creado para poner doble muro en un solo cuadrado. Aunque hemos revisado el mapa varias veces, si os encontráis algún error de este tipo, por favor, solucionadlo. 
+
+3) En los mapas base individuales, la sala central del mapa, rodeada por azul, se crea a parte (Parte azul incluida). El laberinto exterior es el que gira.
+
+4) El laberinto central no gira.
+
+5) Los puntos de inicio se encuentran en los puntos azules oscuros del centro.
+
+6) Los puntos rojos no son nada especial, sólo la unión entre los diferentes mapas.
+
+7) Faltan los laberintos pequeños de las esquinas que os los entregaremos mas adelante.
