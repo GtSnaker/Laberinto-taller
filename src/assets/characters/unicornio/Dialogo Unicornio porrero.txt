@@ -23,7 +23,7 @@ Diálogo 2 [según la respuesta de antes]:
 
 	[1] Vendrás en son de paz, ¿no? Bueno, ¿quieres unas hierbas terapéuticas? Le vendrán bien a tu cabeza si te pierdes. Yo me perdí, y aprendí muchas cosas, tantas, que no sabría qué pasaría si todas ellas fluyeran por mi cabeza sin unas terapéuticas. ¿Bueno, quieres o no? Son 3.000dd's la unidad.
  
-	[2] Jo, chico. ¡Vaya decepción me he llevado! Te apetece sentarte aqui, y tomarte unas terapéuticas conmigo? Son sólo 3.000dd's la unidad.
+	[2] Jo, chico. ¡Vaya decepción me he llevado! ¿Te apetece sentarte aqui, y tomarte unas terapéuticas conmigo? Son sólo 3.000dd's la unidad.
 
 	[3] Menos mal. No sé que habría echo si llega a aparecer ese monstruo por aqui. Quizá... le hubiera ofrecido unas terapéuticas.
 
