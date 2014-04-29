@@ -45,6 +45,8 @@
       this.unicornioChar = this.add.sprite(x, y, 'unicornioPeta');
       this.unicornioChar.x = 707;
       this.unicornioChar.y = 317;
+      
+      // AQUI ESTAN LAS COORDENADAS EXACTAS DONDE DEBE APARECER EL SLENDER EN SU PANTALLA DE DIALOGO
       // this.slenderChar = this.add.sprite(x, y, 'slenderBoy');
       // this.slenderChar.x = 729;
       // this.slenderChar.y = 317;
