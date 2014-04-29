@@ -44,7 +44,7 @@
       this.stateText.anchor.setTo(0.5, 0.5);
       this.stateText.visible = false;
 
-      this.textizador(this.dialogoTotal, 5000);
+      this.textizador(this.dialogoTotal, 6000);
       this.dialogoText.text = this.textoTotal;
       
       
@@ -68,9 +68,8 @@
     textizador: function (texto, tiempo) {
       this.ncaracteres = texto.length;
       this.timePerChar = tiempo / this.ncaracteres;
-      this.timeAhorita = this.time.now;
       if (this.ntotal < this.ncaracteres){
-        if ((this.time.now - this.timeAhorita) < this.timePerChar) {
+        if ((this.time.now - this.timeAhorita) > this.timePerChar) {
           this.textoTotal += this.dialogoTotal[this.ntotal];
           this.ntotal++;
           this.timeAhorita = this.time.now;
