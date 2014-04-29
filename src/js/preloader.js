@@ -18,6 +18,7 @@
       this.load.bitmapFont('minecraftia', 'assets/minecraftia.png', 'assets/minecraftia.xml');
       this.load.image('gokusito', 'assets/goku.png');
       this.load.image('textBox', 'assets/textElements/cajaDeTexto.png');
+      this.load.image('unicornioPeta', 'assets/characters/unicornio/unicornioPeta.png');
     },
 
     create: function () {

@@ -15,6 +15,9 @@
       this.box = this.add.sprite(x, y, 'textBox');
       this.box.x = 25;
       this.box.y = 435;
+      this.unicornioChar = this.add.sprite(x, y, 'unicornioPeta');
+      this.unicornioChar.x = 707;
+      this.unicornioChar.y = 317; 
 
 
       this.input.onDown.add(this.onDown, this);
