@@ -17,6 +17,7 @@
       this.load.image('player', 'assets/player.png');
       this.load.bitmapFont('minecraftia', 'assets/minecraftia.png', 'assets/minecraftia.xml');
       this.load.image('gokusito', 'assets/goku.png');
+      this.load.image('textBox', 'assets/textElements/cajaDeTexto.png');
     },
 
     create: function () {

@@ -9,6 +9,7 @@ window.onload = function () {
   game.state.add('preloader', ns.Preloader);
   game.state.add('menu', ns.Menu);
   game.state.add('game', ns.Game);
+  game.state.add('dialogo1', ns.Dialogo1);
 
   game.state.start('boot');
 };
