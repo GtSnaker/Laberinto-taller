@@ -75,7 +75,7 @@
         //if primera respuesta true -->respuestaUnicornioUno
         //if segunda respuesta true-->respuestaUnicornioDos
         //if tercera respuesta true-->respuestaUnicornioTres
-        this.textizador(this.respuestaUnicornioUno, 2500);
+        this.textizador(this.respuestaUnicornioTres, 2500);
         this.dialogoText.text = this.textoTotal;
       }
 
@@ -85,15 +85,6 @@
     },
 
     onDown: function () {
-      // this.charBool = !this.charBool;
-      // if (!this.charBool) {
-      //   this.unicornioChar.exists = false;
-      //   this.slenderChar.exists = true;
-      // }
-      // else {
-      //   this.unicornioChar.exists = true;
-      //   this.slenderChar.exists = false;
-      // }
       this.textoTotal = '';
       this.timeAhorita = this.time.now;
       this.ntotal = 0;
