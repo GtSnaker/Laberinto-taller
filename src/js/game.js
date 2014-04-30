@@ -25,7 +25,9 @@
       this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
       this.layer.resizeWorld();
 
-      this.camera.follow(this.player);
+      this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
+      //this.style = 'STYLE_PLATFORMER';
+
     },
 
     update: function () {
