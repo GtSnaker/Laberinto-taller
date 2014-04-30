@@ -123,18 +123,20 @@
         this.moveChar();
       }
       else {
-        this.dialogues();
+        this.dialogueUnicorn();
       }
 
       if(this.time.now - this.timeContinue > 3000){
         this.continueTexting();
       }
       
+    //AQUI TERMINAMOS LA FUNCION UPDATE
     },
 
     onInputDown: function () {
     },
 
+    //FUNCION QUE PERMITE EL MOVIMIENTO DEL PERSONAJE
     moveChar:function(){
       if (this.input.keyboard.isDown(Phaser.Keyboard.LEFT))
         {
@@ -166,7 +168,8 @@
         }
     },
 
-    dialogues:function(){
+    //DIALOGOS CON EL UNICORNIO
+    dialogueUnicorn:function(){
         this.stateText.anchor.setTo(0.5, 0.5);
         this.stateText.visible = false;
 
@@ -205,6 +208,7 @@
         }
     },
 
+    //FUNCION QUE HACE QUE EL TEXTO SE MUEVA POCO A POCO
     textizador: function (texto, tiempo) {
       this.ncaracteres = texto.length;
       this.timePerChar = tiempo / this.ncaracteres;
@@ -217,6 +221,7 @@
       }
     },
 
+    //TRES SELECTORES
     selection3: function () {
       if(!this.selector1.exists && !this.selector2.exists && !this.selector3.exists) {
         this.selector1.exists = true;
@@ -262,6 +267,7 @@
       }
     },
 
+    //DOS SELECTORES
     selection2: function () {
       if(!this.selector1.exists && !this.selector2.exists && !this.selector3.exists) {
         this.selector1.exists = true;
@@ -295,6 +301,7 @@
       }
     },
 
+    //AVANZA EN LAS CONVERSACIONES DEL TEXTO
     continueTexting:function(){
       if (this.input.keyboard.isDown(Phaser.Keyboard.ENTER))
       {
