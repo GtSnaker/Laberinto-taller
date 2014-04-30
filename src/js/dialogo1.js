@@ -61,7 +61,7 @@
       this.stateText.visible = false;
 
       if(this.primerDialogo){
-        this.textizador(this.dialogoUno, 5000);
+        this.textizador(this.dialogoUno, 6000);
         this.dialogoText.text = this.textoTotal;
       }
       else if(this.segundoDialogo){
