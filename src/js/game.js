@@ -68,6 +68,7 @@
       this.tercerDialogo = false;
       this.cuartoDialogo = false;
       this.quintoDialogo = false;
+      this.dialogoFinal = false;
 
       this.stateText = this.game.add.text(this.game.world.centerX, this.game.world.centerY,'', { fontSize: '84px', fill: '#fff' });
       this.dialogoText = this.game.add.text(40, 447, '', { fontSize: '34px', fill: '#fff' });
@@ -126,7 +127,7 @@
         this.dialogueUnicorn();
       }
 
-      if(this.time.now - this.timeContinue > 3000){
+      if(this.time.now - this.timeContinue > 1000){
         this.continueTexting();
       }
       
@@ -198,13 +199,23 @@
         }
 
         else if(this.cuartoDialogo){
+          this.respuesta1 = false;
+          this.respuesta2 = false;
+          this.respuesta3 = false;
           this.textizador(this.respuestasCharDos, 1500);
           this.dialogoText.text = this.textoTotal;
           this.selection2();
         }
+        
         else if(this.quintoDialogo){
-          this.textizador(this.dialogoUnicornioDosUno, 1000);
-          this.dialogoText.text = this.textoTotal;
+          if(this.respuesta1){
+            this.textizador(this.dialogoUnicornioDosUno, 1000);
+            this.dialogoText.text = this.textoTotal;
+          }
+          else if(this.respuesta2){
+            this.textizador(this.dialogoUnicornioDosDos, 1000);
+            this.dialogoText.text = this.textoTotal;
+          }
         }
     },
 
@@ -333,11 +344,19 @@
         }
         else if(this.quintoDialogo) {
           this.quintoDialogo = false;
+          this.dialogoFinal = true;
+        }
+        else if(this.dialogoFinal){
+          this.respuesta1 = false;
+          this.respuesta2 = false;
+          this.respuesta3 = false;
+          this.dialogoFinal = false;
           this.jugando = true;
           this.box.exists = false;
           this.unicornioChar.exists = false;
           this.dialogoText.text = '';
         }
+
         if (this.selector1.exists){
           this.selector1.exists = false;
           this.respuesta1 = true;
