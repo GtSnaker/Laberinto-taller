@@ -16,7 +16,8 @@
       this.game.physics.startSystem(Phaser.Physics.ARCADE);
       this.map = this.game.add.tilemap('map');
       this.map.addTilesetImage('tiles');
-      this.layer = this.map.createLayer('Capa de Patrones 1');
+      this.layer = this.map.createLayer('Capa de Patrones 1');     
+      this.layer.resizeWorld();
 
       this.unicornioPlayer = this.add.sprite(100, 100, 'unicornioPlayer');
       this.unicornioPlayer.scale.set(0.5);
@@ -38,10 +39,7 @@
       this.game.physics.enable(this.unicornioPlayer, Phaser.Physics.ARCADE);
       this.unicornioPlayer.body.immovable = true;
 
-      this.layer.resizeWorld();
-
       this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
-      //this.style = 'STYLE_PLATFORMER';
 
       this.jugando = true;
 
@@ -71,7 +69,6 @@
       this.cuartoDialogo = false;
       this.quintoDialogo = false;
 
-
       this.stateText = this.game.add.text(this.game.world.centerX, this.game.world.centerY,'', { fontSize: '84px', fill: '#fff' });
       this.dialogoText = this.game.add.text(40, 447, '', { fontSize: '34px', fill: '#fff' });
       this.dialogoText.fontSize = 27;
@@ -81,6 +78,8 @@
       this.timePerChar = 0;
       this.timeAhorita = 0;
       this.charBool = true;
+      this.timeSelector = 0;
+      this.timeContinue = 0;
 
       this.unicornioChar = this.add.sprite(x, y, 'unicornio');
       this.unicornioChar.x = 707;
@@ -88,7 +87,7 @@
       this.unicornioChar.fixedToCamera = true;
       this.unicornioChar.exists = false;
 
-      this.selector3 = this.game.add.sprite(40, 445, 'flecha');
+      this.selector3 = this.game.add.sprite(40, 565, 'flecha');
       this.selector3.scale.set(0.65);
       this.selector3.fixedToCamera = true;
       this.selector3.exists = false;
@@ -96,33 +95,48 @@
       this.selector2.scale.set(0.65);
       this.selector2.fixedToCamera = true;
       this.selector2.exists = false;
-      this.selector1 = this.game.add.sprite(40, 565, 'flecha');
+      this.selector1 = this.game.add.sprite(40, 445, 'flecha');
       this.selector1.scale.set(0.65);
       this.selector1.fixedToCamera = true;
       this.selector1.exists = false;
-   
+
+      this.respuesta1 = false; 
+      this.respuesta2 = false;
+      this.respuesta3 = false;
 
     },
 
     update: function () {
-
       var x, y, cx, cy, dx, dy, angle, scale;
-      //this.physics.arcade.collide(this.player, this.layer);
       this.physics.arcade.collide(this.player, this.unicornioPlayer);
-
 
       x = this.input.position.x;
       y = this.input.position.y;
       cx = this.world.centerX;
       cy = this.world.centerY;
 
-      if (this.jugando) {
-        
+      if (this.jugando) {  
         this.player.body.collideWorldBounds = true;
         this.player.body.velocity.x = 0;
         this.player.body.velocity.y = 0;
 
-        if (this.input.keyboard.isDown(Phaser.Keyboard.LEFT))
+        this.moveChar();
+      }
+      else {
+        this.dialogues();
+      }
+
+      if(this.time.now - this.timeContinue > 3000){
+        this.continueTexting();
+      }
+      
+    },
+
+    onInputDown: function () {
+    },
+
+    moveChar:function(){
+      if (this.input.keyboard.isDown(Phaser.Keyboard.LEFT))
         {
           this.player.animations.play('left');
           this.player.body.velocity.x = -600;
@@ -150,45 +164,9 @@
         {
           this.player.body.velocity.x = 0;
         }
+    },
 
-      //   if((this.distance(this.player, this.unicornioPlayer)< 100) && (this.input.keyboard.isDown(Phaser.Keyboard.A)))
-      //   {
-      //     this.textoTotal = '';
-      // this.timeAhorita = this.time.now;
-      // this.ntotal = 0;
-      // if(this.jugando) {
-      //   this.jugando = false;
-      //   this.primerDialogo = true;
-      //   this.box.exists = true;
-      //   this.unicornioChar.exists = true;
-      // }
-      // else if(this.primerDialogo) {
-      //   this.primerDialogo = false;
-      //   this.segundoDialogo = true;
-      // }
-      // else if(this.segundoDialogo) {
-      //   this.segundoDialogo = false;
-      //   this.tercerDialogo = true;
-      // }
-      // else if(this.tercerDialogo) {
-      //   this.tercerDialogo = false;
-      //   this.cuartoDialogo = true;
-      // }
-      // else if(this.cuartoDialogo) {
-      //   this.cuartoDialogo = false;
-      //   this.quintoDialogo = true;
-      // }
-      // else if(this.quintoDialogo) {
-      //   this.quintoDialogo = false;
-      //   this.jugando = true;
-      //   this.box.exists = false;
-      //   this.unicornioChar.exists = false;
-      //   this.dialogoText.text = '';
-      // }
-      //   }
-
-      }
-      else {
+    dialogues:function(){
         this.stateText.anchor.setTo(0.5, 0.5);
         this.stateText.visible = false;
 
@@ -196,64 +174,35 @@
           this.textizador(this.dialogoUno, 6000);
           this.dialogoText.text = this.textoTotal;
         }
+
         else if(this.segundoDialogo){
           this.textizador(this.respuestasCharUno, 1800);
           this.dialogoText.text = this.textoTotal;
-        //if respuesta uno -->true primera respuesta
-        //if respuesta dos -->true segunda respuesta
-        //if respuesta tres -->true tercera respuesta
+          this.selection3();
         }
+
         else if(this.tercerDialogo){
-        //if primera respuesta true -->respuestaUnicornioUno
-        //if segunda respuesta true-->respuestaUnicornioDos
-        //if tercera respuesta true-->respuestaUnicornioTres
-          this.textizador(this.dialogoUnicornioUnoUno, 2500);
+          if(this.respuesta1){
+            this.textizador(this.dialogoUnicornioUnoUno, 2500);
+          }
+          else if(this.respuesta2){
+            this.textizador(this.dialogoUnicornioUnoDos, 2500);
+          }
+          else if(this.respuesta3){
+            this.textizador(this.dialogoUnicornioUnoTres, 2500);
+          }
           this.dialogoText.text = this.textoTotal;
         }
+
         else if(this.cuartoDialogo){
           this.textizador(this.respuestasCharDos, 1500);
           this.dialogoText.text = this.textoTotal;
+          this.selection2();
         }
         else if(this.quintoDialogo){
           this.textizador(this.dialogoUnicornioDosUno, 1000);
           this.dialogoText.text = this.textoTotal;
         }
-      }
-    },
-
-    onInputDown: function () {
-      this.textoTotal = '';
-      this.timeAhorita = this.time.now;
-      this.ntotal = 0;
-      if(this.jugando) {
-        this.jugando = false;
-        this.primerDialogo = true;
-        this.box.exists = true;
-        this.unicornioChar.exists = true;
-      }
-      else if(this.primerDialogo) {
-        this.primerDialogo = false;
-        this.segundoDialogo = true;
-      }
-      else if(this.segundoDialogo) {
-        this.segundoDialogo = false;
-        this.tercerDialogo = true;
-      }
-      else if(this.tercerDialogo) {
-        this.tercerDialogo = false;
-        this.cuartoDialogo = true;
-      }
-      else if(this.cuartoDialogo) {
-        this.cuartoDialogo = false;
-        this.quintoDialogo = true;
-      }
-      else if(this.quintoDialogo) {
-        this.quintoDialogo = false;
-        this.jugando = true;
-        this.box.exists = false;
-        this.unicornioChar.exists = false;
-        this.dialogoText.text = '';
-      }
     },
 
     textizador: function (texto, tiempo) {
@@ -264,6 +213,138 @@
           this.textoTotal += texto[this.ntotal];
           this.ntotal++;
           this.timeAhorita = this.time.now;
+        }
+      }
+    },
+
+    selection3: function () {
+      if(!this.selector1.exists && !this.selector2.exists && !this.selector3.exists) {
+        this.selector1.exists = true;
+        this.timeSelector = this.time.now;
+      }
+      if (this.time.now - this.timeSelector > 500){
+        if(this.selector1.exists) {
+          if (this.input.keyboard.isDown(Phaser.Keyboard.DOWN)){
+            this.selector2.exists = true;
+            this.selector1.exists = false;
+            this.timeSelector = this.time.now;
+          }
+          else if (this.input.keyboard.isDown(Phaser.Keyboard.UP)) {
+            this.selector1.exists = false;
+            this.selector3.exists = true;
+            this.timeSelector = this.time.now;
+          }
+        }
+        else if(this.selector2.exists) {
+          if (this.input.keyboard.isDown(Phaser.Keyboard.DOWN)){
+            this.selector2.exists = false;
+            this.selector3.exists = true;
+            this.timeSelector = this.time.now;
+          }
+          else if (this.input.keyboard.isDown(Phaser.Keyboard.UP)) {
+            this.selector1.exists = true;
+            this.selector2.exists = false;
+            this.timeSelector = this.time.now;
+          }
+        }
+        else if (this.selector3.exists) {
+          if (this.input.keyboard.isDown(Phaser.Keyboard.DOWN)){
+            this.selector1.exists = true;
+            this.selector3.exists = false;
+            this.timeSelector = this.time.now;
+          }
+          else if (this.input.keyboard.isDown(Phaser.Keyboard.UP)) {
+            this.selector3.exists = false;
+            this.selector2.exists = true;
+            this.timeSelector = this.time.now;
+          }
+        }
+      }
+    },
+
+    selection2: function () {
+      if(!this.selector1.exists && !this.selector2.exists && !this.selector3.exists) {
+        this.selector1.exists = true;
+        this.timeSelector = this.time.now;
+      }
+      if (this.time.now - this.timeSelector > 500){
+        if(this.selector1.exists) {
+          if (this.input.keyboard.isDown(Phaser.Keyboard.DOWN)){
+            this.selector2.exists = true;
+            this.selector1.exists = false;
+            this.timeSelector = this.time.now;
+          }
+          else if (this.input.keyboard.isDown(Phaser.Keyboard.UP)) {
+            this.selector1.exists = false;
+            this.selector2.exists = true;
+            this.timeSelector = this.time.now;
+          }
+        }
+        else if(this.selector2.exists) {
+          if (this.input.keyboard.isDown(Phaser.Keyboard.DOWN)){
+            this.selector2.exists = false;
+            this.selector1.exists = true;
+            this.timeSelector = this.time.now;
+          }
+          else if (this.input.keyboard.isDown(Phaser.Keyboard.UP)) {
+            this.selector1.exists = true;
+            this.selector2.exists = false;
+            this.timeSelector = this.time.now;
+          }
+        }
+      }
+    },
+
+    continueTexting:function(){
+      if (this.input.keyboard.isDown(Phaser.Keyboard.ENTER))
+      {
+        this.timeContinue = this.time.now;
+        this.textoTotal = '';
+        this.timeAhorita = this.time.now;
+        this.ntotal = 0;
+        if(this.jugando) {
+          this.jugando = false;
+          this.primerDialogo = true;
+          this.box.exists = true;
+          this.unicornioChar.exists = true;
+        }
+        else if(this.primerDialogo) {
+          this.primerDialogo = false;
+          this.segundoDialogo = true;
+        }
+        else if(this.segundoDialogo) {
+          this.segundoDialogo = false;
+          this.tercerDialogo = true;
+        }
+        else if(this.tercerDialogo) {
+          this.tercerDialogo = false;
+          this.cuartoDialogo = true;
+        }
+        else if(this.cuartoDialogo) {
+          this.cuartoDialogo = false;
+          this.quintoDialogo = true;
+        }
+        else if(this.quintoDialogo) {
+          this.quintoDialogo = false;
+          this.jugando = true;
+          this.box.exists = false;
+          this.unicornioChar.exists = false;
+          this.dialogoText.text = '';
+        }
+        if (this.selector1.exists){
+          this.selector1.exists = false;
+          this.respuesta1 = true;
+          this.onInputDown();
+        }
+        else if (this.selector2.exists){
+          this.selector2.exists = false;
+          this.respuesta2 = true;
+          this.onInputDown();
+        }
+        else if (this.selector3.exists){
+          this.selector3.exists = false;
+          this.respuesta3 = true;
+          this.onInputDown();
         }
       }
     },

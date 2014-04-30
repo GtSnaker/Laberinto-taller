@@ -17,7 +17,6 @@
       //this.load.image('player', 'assets/player.png');
       this.load.spritesheet('player', 'assets/jimmy_basico.png', 50, 73);
       this.load.bitmapFont('minecraftia', 'assets/minecraftia.png', 'assets/minecraftia.xml');
-      this.load.image('gokusito', 'assets/goku.png');
       this.load.image('textBox', 'assets/textElements/cajaDeTexto.png');
       this.load.image('unicornio', 'assets/characters/unicornio/unicornioPeta.png');
       this.load.image('unicornioPlayer', 'assets/characters/unicornio/unicornioSprite.png');
