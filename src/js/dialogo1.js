@@ -22,14 +22,19 @@
 
       this.dialogoUno = '¡Hey! ¡Hola chico!\n¿Tú no eres algo pequeño para estar por aqui solo? \n¡No me digas que eres ese niño de la leyenda de la cueva! \n¡Ese que devora caballos y rompe piedras a mordiscos!\n¿Eres tú?';
       this.respuestasCharUno = '     Si, ¡témeme!\n\n     Mas o menos.\n\n     No sé de quién hablas.';
-      this.respuestaUnicornioUno = "[1] Vendrás en son de paz, ¿no? Bueno, \n¿quieres unas hierbas terapéuticas?\nLe vendrán bien a tu cabeza si te pierdes. \nYo me perdí, y aprendí muchas cosas, tantas, \nque no sabría qué pasaría si todas ellas \nfluyeran por mi cabeza sin unas terapéuticas. \n¿Bueno, quieres o no? Son 3.000dd's la unidad.";
-      this.respuestaUnicornioDos = "[2] Jo, chico. ¡Vaya decepción me he llevado! \n¿Te apetece sentarte aqui, \ny tomarte unas terapéuticas conmigo? \nSon sólo 3.000dd's la unidad.";
-      this.respuestaUnicornioTres = "[3] Menos mal. No sé que habría hecho si \nllega a aparecer ese monstruo por aqui. \nQuizá... le hubiera ofrecido unas terapéuticas.";
+      this.dialogoUnicornioUnoUno = "[1] Vendrás en son de paz, ¿no? Bueno, \n¿quieres unas hierbas terapéuticas?\nLe vendrán bien a tu cabeza si te pierdes. \nYo me perdí, y aprendí muchas cosas, tantas, \nque no sabría qué pasaría si todas ellas \nfluyeran por mi cabeza sin unas terapéuticas. \n¿Bueno, quieres o no? Son 3.000dd's la unidad.";
+      this.dialogoUnicornioUnoDos = "[2] Jo, chico. ¡Vaya decepción me he llevado! \n¿Te apetece sentarte aqui, \ny tomarte unas terapéuticas conmigo? \nSon sólo 3.000dd's la unidad.";
+      this.dialogoUnicornioUnoTres = "[3] Menos mal. No sé que habría hecho si \nllega a aparecer ese monstruo por aqui. \nQuizá... le hubiera ofrecido unas terapéuticas.";
+      this.respuestasCharDos = "     ¡¿3.000dd's?! ¿Estás fumao o qué? ¡Anda a pastar!\n\n     No, gracias, no tengo dinero.";
+      this.dialogoUnicornioDosUno = 'El laberinto gira en el sentido de las agujas del reloj.';
+      this.dialogoUnicornioDosDos = 'El laberinto gira en el sentido contrario de las agujas del reloj';
 
       this.contadorDialogo = 0;
       this.primerDialogo = true;
       this.segundoDialogo = false;
       this.tercerDialogo = false;
+      this.cuartoDialogo = false;
+      this.quintoDialogo = false;
 
 
       this.stateText = this.game.add.text(this.game.world.centerX, this.game.world.centerY,'', { fontSize: '84px', fill: '#fff' });
@@ -75,7 +80,15 @@
         //if primera respuesta true -->respuestaUnicornioUno
         //if segunda respuesta true-->respuestaUnicornioDos
         //if tercera respuesta true-->respuestaUnicornioTres
-        this.textizador(this.respuestaUnicornioTres, 2500);
+        this.textizador(this.dialogoUnicornioUnoUno, 2500);
+        this.dialogoText.text = this.textoTotal;
+      }
+      else if(this.cuartoDialogo){
+        this.textizador(this.respuestasCharDos, 1500);
+        this.dialogoText.text = this.textoTotal;
+      }
+      else if(this.quintoDialogo){
+        this.textizador(this.dialogoUnicornioDosUno, 1000);
         this.dialogoText.text = this.textoTotal;
       }
 
@@ -95,6 +108,14 @@
       else if(this.segundoDialogo) {
         this.segundoDialogo = false;
         this.tercerDialogo = true;
+      }
+      else if(this.tercerDialogo) {
+        this.tercerDialogo = false;
+        this.cuartoDialogo = true;
+      }
+      else if(this.cuartoDialogo) {
+        this.cuartoDialogo = false;
+        this.quintoDialogo = true;
       }
       
     },

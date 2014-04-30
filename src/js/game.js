@@ -3,6 +3,8 @@
 
   function Game() {
     this.player = null;
+    this.map;
+    this.layer;
   }
 
   Game.prototype = {
@@ -12,12 +14,18 @@
         , y = this.game.height / 2;
 
       this.game.physics.startSystem(Phaser.Physics.ARCADE);
+      this.map = this.game.add.tilemap('map');
+      this.map.addTilesetImage('tiles');
+      this.layer = this.map.createLayer('Capa de Patrones 1');
 
       this.player = this.add.sprite(x, y, 'gokusito');
       this.player.anchor.setTo(0.5, 0.5);
       this.input.onDown.add(this.onInputDown, this);
       
       this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
+      this.layer.resizeWorld();
+
+      this.camera.follow(this.player);
     },
 
     update: function () {

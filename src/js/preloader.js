@@ -20,6 +20,9 @@
       this.load.image('textBox', 'assets/textElements/cajaDeTexto.png');
       this.load.image('unicornioPeta', 'assets/characters/unicornio/unicornioPeta.png');
       this.load.image('slenderBoy', 'assets/characters/slender/slenderBoy.png');
+      this.load.image('flecha', 'assets/textElements/flecha.png');
+      this.load.tilemap('map', 'assets/map.json', null, Phaser.Tilemap.TILED_JSON);
+      this.load.image('tiles', 'assets/tileset.png');
     },
 
     create: function () {
