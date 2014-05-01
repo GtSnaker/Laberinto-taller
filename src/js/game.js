@@ -16,6 +16,21 @@
       this.game.physics.startSystem(Phaser.Physics.ARCADE);
       this.map = this.game.add.tilemap('map');
       this.map.addTilesetImage('tiles');
+      this.map.setCollision(1);
+      this.map.setCollision(2);
+      this.map.setCollision(3);
+      this.map.setCollision(4);
+      this.map.setCollision(6);
+      this.map.setCollision(7);
+      this.map.setCollision(8);
+      this.map.setCollision(9);
+      this.map.setCollision(10);
+      this.map.setCollision(11);
+      this.map.setCollision(12);
+      this.map.setCollision(13);
+      this.map.setCollision(14);
+
+
       this.layer = this.map.createLayer('Capa de Patrones 1');     
       this.layer.resizeWorld();
 
@@ -37,6 +52,7 @@
       
       this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
       this.game.physics.enable(this.unicornioPlayer, Phaser.Physics.ARCADE);
+
       this.unicornioPlayer.body.immovable = true;
 
       this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
@@ -110,6 +126,7 @@
     update: function () {
       var x, y, cx, cy, dx, dy, angle, scale;
       this.physics.arcade.collide(this.player, this.unicornioPlayer);
+      this.physics.arcade.collide(this.player, this.layer);
 
       x = this.input.position.x;
       y = this.input.position.y;

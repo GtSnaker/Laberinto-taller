@@ -22,8 +22,9 @@
       this.load.image('unicornioPlayer', 'assets/characters/unicornio/unicornioSprite.png');
       this.load.image('slenderBoy', 'assets/characters/slender/slenderBoy.png');
       this.load.image('flecha', 'assets/textElements/flecha.png');
-      this.load.tilemap('map', 'assets/map.json', null, Phaser.Tilemap.TILED_JSON);
-      this.load.image('tiles', 'assets/tileset.png');
+
+      this.load.tilemap('map', 'assets/centralMap.json', null, Phaser.Tilemap.TILED_JSON);
+      this.load.image('tiles', 'assets/fixedMap.png');
     },
 
     create: function () {
