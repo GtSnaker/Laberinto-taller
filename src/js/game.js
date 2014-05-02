@@ -58,8 +58,10 @@
       
       this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
       this.game.physics.enable(this.unicornioPlayer, Phaser.Physics.ARCADE);
+      this.game.physics.enable(this.slenderPlayer, Phaser.Physics.ARCADE);
 
       this.unicornioPlayer.body.immovable = true;
+      this.slenderPlayer.body.immovable = true;
 
       this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
 
@@ -129,13 +131,19 @@
 
     },
 
+    //UPDATEEEEEE
+    //EEEEEEEEEEE
+    //EEEEEEEEEEE
     update: function () {
       var x, y, cx, cy, dx, dy, angle, scale;
       this.physics.arcade.collide(this.player, this.unicornioPlayer);
+      this.physics.arcade.collide(this.player, this.slenderPlayer);
       this.physics.arcade.collide(this.player, this.layer);
 
       this.unicornioPlayer.animations.play('walk');
       this.slenderPlayer.animations.play('walk');
+
+      //console.log(this.distance(this.player, this.unicornioPlayer));
 
       x = this.input.position.x;
       y = this.input.position.y;
@@ -156,6 +164,9 @@
       if(this.time.now - this.timeContinue > 1000){
         this.continueTexting();
       }
+      //FIN UPDATEEEEEEE
+      //EEEEEEEEEEEEEEEE
+      //EEEEEEEEEEEEEEEE
       
     //AQUI TERMINAMOS LA FUNCION UPDATE
     },
@@ -401,9 +412,9 @@
       }
     },
 
-    // distance: function (uno, dos) {
-    //   return Math.sqrt((uno.x-dos.x)*(uno.x-dos.x)+(uno.y-dos.y)*(uno.y-dos.y));
-    // },
+    distance: function (uno, dos) {
+      return Math.sqrt((uno.x-dos.x)*(uno.x-dos.x)+(uno.y-dos.y)*(uno.y-dos.y));
+    },
 
   };
 
