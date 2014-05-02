@@ -21,12 +21,12 @@
       this.buttonPlay = this.add.sprite(0, 600, 'play');
       this.buttonPlay.exists = false;
 
-      this.musicPlaying = false;
-      if(!this.musicPlaying) {
-        this.music = this.game.add.audio('music2', 1, true);
-        this.music.play('', 0, 1, true);
-        this.musicPlaying = true;
-      }
+      // this.musicPlaying = false;
+      // if(!this.musicPlaying) {
+      //   this.music = this.game.add.audio('music2', 1, true);
+      //   this.music.play('', 0, 1, true);
+      //   this.musicPlaying = true;
+      // }
 
 
       // this.titleTxt = this.add.bitmapText(x, y, 'minecraftia', 'Example Game' );

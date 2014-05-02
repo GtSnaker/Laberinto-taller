@@ -21,7 +21,7 @@
       this.load.bitmapFont('minecraftia', 'assets/minecraftia.png', 'assets/minecraftia.xml');
       this.load.image('textBox', 'assets/textElements/cajaDeTexto.png');
       this.load.image('unicornio', 'assets/characters/unicornio/unicornioPeta.png');
-      this.load.image('unicornioPlayer', 'assets/characters/unicornio/unicornioSprite.png');
+      this.load.spritesheet('unicornioPlayer', 'assets/unicornio.png', 297, 446);
       this.load.image('slenderBoy', 'assets/characters/slender/slenderBoy.png');
       this.load.image('flecha', 'assets/textElements/flecha.png');
       this.load.image('play', 'assets/Barra_jugar.png');

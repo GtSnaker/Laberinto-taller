@@ -34,10 +34,12 @@
       this.layer = this.map.createLayer('Capa de Patrones 1');     
       this.layer.resizeWorld();
 
-      this.unicornioPlayer = this.add.sprite(2500, 2325, 'unicornioPlayer');
-      this.unicornioPlayer.scale.set(0.5);
-      this.unicornioPlayer.pivot.x = 25;
-      this.unicornioPlayer.pivot.y = 36.5;
+      this.unicornioPlayer = this.add.sprite(2555, 2400, 'unicornioPlayer');
+      this.unicornioPlayer.anchor.setTo(0.5, 0.5);
+      this.unicornioPlayer.scale.set(0.4)
+      this.unicornioPlayer.animations.add('walk', [0,1], 1.8, true);
+      // this.unicornioPlayer.pivot.x = 25;
+      // this.unicornioPlayer.pivot.y = 36.5;
 
       this.player = this.add.sprite(2380, 2400, 'player');
       this.player.anchor.setTo(0.5, 0.5);
@@ -127,6 +129,8 @@
       var x, y, cx, cy, dx, dy, angle, scale;
       this.physics.arcade.collide(this.player, this.unicornioPlayer);
       this.physics.arcade.collide(this.player, this.layer);
+
+      this.unicornioPlayer.animations.play('walk');
 
       x = this.input.position.x;
       y = this.input.position.y;
