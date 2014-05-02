@@ -18,15 +18,14 @@
       this.game.add.tween(this.portada00).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true, 1, 1000, true);
       this.timeFading = this.time.now;
 
-      this.buttonPlay = this.add.sprite(0, 600, 'play');
-      this.buttonPlay.exists = false;
+      this.buttonPlay = this.add.button(0, 600, 'play', function() {this.game.state.start('game');} , this, 1, 0);
 
-      // this.musicPlaying = false;
-      // if(!this.musicPlaying) {
-      //   this.music = this.game.add.audio('music2', 1, true);
-      //   this.music.play('', 0, 1, true);
-      //   this.musicPlaying = true;
-      // }
+      this.musicPlaying = false;
+      if(!this.musicPlaying) {
+        this.music = this.game.add.audio('music2', 1, true);
+        this.music.play('', 0, 1, true);
+        this.musicPlaying = true;
+      }
 
 
       // this.titleTxt = this.add.bitmapText(x, y, 'minecraftia', 'Example Game' );
@@ -44,12 +43,11 @@
     update: function () {
       if(this.time.now - this.timeFading > 6000){
         this.portada00.exists = false;
-        this.buttonPlay.exists = true;
       }
     },
 
     onDown: function () {
-      this.game.state.start('game');
+      
     }
   };
 
