@@ -34,7 +34,7 @@
       this.layer = this.map.createLayer('Capa de Patrones 1');     
       this.layer.resizeWorld();
 
-      this.unicornioPlayer = this.add.sprite(2500, 2350, 'unicornioPlayer');
+      this.unicornioPlayer = this.add.sprite(2500, 2325, 'unicornioPlayer');
       this.unicornioPlayer.scale.set(0.5);
       this.unicornioPlayer.pivot.x = 25;
       this.unicornioPlayer.pivot.y = 36.5;

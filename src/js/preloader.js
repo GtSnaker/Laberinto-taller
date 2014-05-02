@@ -14,7 +14,9 @@
 
       this.load.onLoadComplete.addOnce(this.onLoadComplete, this);
       this.load.setPreloadSprite(this.asset);
-      //this.load.image('player', 'assets/player.png');
+
+      this.load.image('portada00', 'assets/Portada00.png');
+      this.load.image('portada01', 'assets/Portada01.png');
       this.load.spritesheet('player', 'assets/jimmy_basico.png', 50, 73);
       this.load.bitmapFont('minecraftia', 'assets/minecraftia.png', 'assets/minecraftia.xml');
       this.load.image('textBox', 'assets/textElements/cajaDeTexto.png');
@@ -22,6 +24,9 @@
       this.load.image('unicornioPlayer', 'assets/characters/unicornio/unicornioSprite.png');
       this.load.image('slenderBoy', 'assets/characters/slender/slenderBoy.png');
       this.load.image('flecha', 'assets/textElements/flecha.png');
+      this.load.image('play', 'assets/Barra_jugar.png');
+      this.game.load.audio('music1', ['assets/sound/music1.mp3']);
+      this.game.load.audio('music2', ['assets/sound/music2.mp3']);
 
       this.load.tilemap('map', 'assets/centralMap.json', null, Phaser.Tilemap.TILED_JSON);
       this.load.image('tiles', 'assets/fixedMap.png');
