@@ -30,7 +30,6 @@
       this.map.setCollision(13);
       this.map.setCollision(14);
 
-
       this.layer = this.map.createLayer('Capa de Patrones 1');     
       this.layer.resizeWorld();
 
@@ -40,6 +39,11 @@
       this.unicornioPlayer.animations.add('walk', [0,1], 1.8, true);
       // this.unicornioPlayer.pivot.x = 25;
       // this.unicornioPlayer.pivot.y = 36.5;
+
+      this.slenderPlayer = this.add.sprite(2555, 2620, 'slenderBoy');
+      this.slenderPlayer.anchor.setTo(0.5, 0.5);
+      this.slenderPlayer.scale.set(0.4)
+      this.slenderPlayer.animations.add('walk', [0,1], 1.8, true);
 
       this.player = this.add.sprite(2380, 2400, 'player');
       this.player.anchor.setTo(0.5, 0.5);
@@ -131,6 +135,7 @@
       this.physics.arcade.collide(this.player, this.layer);
 
       this.unicornioPlayer.animations.play('walk');
+      this.slenderPlayer.animations.play('walk');
 
       x = this.input.position.x;
       y = this.input.position.y;
