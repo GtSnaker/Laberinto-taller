@@ -24,7 +24,9 @@
       this.load.spritesheet('unicornioPlayer', 'assets/unicornio.png', 295, 446);
       this.load.spritesheet('slenderBoy', 'assets/slenderBoy.png', 339, 324);
       this.load.image('flecha', 'assets/textElements/flecha.png');
+      this.load.image('degradado', 'assets/degradado.png');
       this.load.spritesheet('play', 'assets/botones.png', 366, 62);
+
       this.game.load.audio('music1', ['assets/sound/music1.mp3']);
       this.game.load.audio('music2', ['assets/sound/music2.mp3']);
 

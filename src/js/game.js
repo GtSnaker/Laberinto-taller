@@ -16,6 +16,7 @@
       this.game.physics.startSystem(Phaser.Physics.ARCADE);
       this.map = this.game.add.tilemap('map');
       this.map.addTilesetImage('tiles');
+      
       this.map.setCollision(1);
       this.map.setCollision(2);
       this.map.setCollision(3);
@@ -72,6 +73,9 @@
       this.box.y = 435;
       this.box.fixedToCamera = true;
       this.box.exists = false;
+
+      this.degradado = this.add.sprite(0,0,'degradado');
+      this.degradado.fixedToCamera = true;
 
       this.giro90grados = 'El laberinto dira 90º  - 1 cuarto de vuelta';
       this.giro180grados = 'El laberinto gira 180º - 2 cuartos de vuelta';
@@ -135,6 +139,7 @@
     //EEEEEEEEEEE
     //EEEEEEEEEEE
     update: function () {
+
       var x, y, cx, cy, dx, dy, angle, scale;
       this.physics.arcade.collide(this.player, this.unicornioPlayer);
       this.physics.arcade.collide(this.player, this.slenderPlayer);
