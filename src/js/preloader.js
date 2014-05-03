@@ -23,6 +23,7 @@
       this.load.image('unicornio', 'assets/characters/unicornio/unicornioPeta.png');
       this.load.spritesheet('unicornioPlayer', 'assets/unicornio.png', 295, 446);
       this.load.spritesheet('slenderBoy', 'assets/slenderBoy.png', 339, 324);
+      this.load.spritesheet('deku', 'assets/deku.png', 28, 38);
       this.load.image('flecha', 'assets/textElements/flecha.png');
       this.load.image('degradado', 'assets/degradado.png');
       this.load.spritesheet('play', 'assets/botones.png', 366, 62);

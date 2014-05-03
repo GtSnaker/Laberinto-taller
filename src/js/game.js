@@ -54,15 +54,20 @@
       this.player.animations.add('right', [1], 10, true);
       this.player.animations.add('up', [2], 10, true);
       this.player.animations.play('down');
+
+      this.deku = this.add.sprite(2350, 2480, 'deku');
+      this.deku.animations.add('move', [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], 3, true);
         
       this.input.onDown.add(this.onInputDown, this);
       
       this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
       this.game.physics.enable(this.unicornioPlayer, Phaser.Physics.ARCADE);
       this.game.physics.enable(this.slenderPlayer, Phaser.Physics.ARCADE);
+      this.game.physics.enable(this.deku, Phaser.Physics.ARCADE);
 
       this.unicornioPlayer.body.immovable = true;
       this.slenderPlayer.body.immovable = true;
+      this.deku.body.immovable = true;
 
       this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
 
@@ -143,10 +148,12 @@
       var x, y, cx, cy, dx, dy, angle, scale;
       this.physics.arcade.collide(this.player, this.unicornioPlayer);
       this.physics.arcade.collide(this.player, this.slenderPlayer);
+      this.physics.arcade.collide(this.player, this.deku);
       this.physics.arcade.collide(this.player, this.layer);
 
       this.unicornioPlayer.animations.play('walk');
       this.slenderPlayer.animations.play('walk');
+      this.deku.animations.play('move');
 
       //console.log(this.distance(this.player, this.unicornioPlayer));
 
