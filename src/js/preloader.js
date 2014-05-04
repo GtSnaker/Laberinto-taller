@@ -17,7 +17,7 @@
 
       this.load.image('portada00', 'assets/Portada00.png');
       this.load.image('portada01', 'assets/Portada01.png');
-      this.load.spritesheet('player', 'assets/jimmy_basico.png', 50, 73);
+      this.load.spritesheet('player', 'assets/jimbo.png', 39.5, 52.7);
       this.load.bitmapFont('minecraftia', 'assets/minecraftia.png', 'assets/minecraftia.xml');
       this.load.image('textBox', 'assets/textElements/cajaDeTexto.png');
       this.load.image('unicornio', 'assets/characters/unicornio/unicornioPeta.png');
