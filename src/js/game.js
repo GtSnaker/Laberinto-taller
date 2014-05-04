@@ -55,7 +55,7 @@
       this.player.animations.add('up', [2], 10, true);
       this.player.animations.play('down');
 
-      this.deku = this.add.sprite(2350, 2480, 'deku');
+      this.deku = this.add.sprite(2100, 2450, 'deku');
       this.deku.animations.add('move', [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], 3, true);
         
       this.input.onDown.add(this.onInputDown, this);
@@ -148,7 +148,7 @@
       var x, y, cx, cy, dx, dy, angle, scale;
       this.physics.arcade.collide(this.player, this.unicornioPlayer);
       this.physics.arcade.collide(this.player, this.slenderPlayer);
-      this.physics.arcade.collide(this.player, this.deku);
+      //this.physics.arcade.collide(this.player, this.deku);
       this.physics.arcade.collide(this.player, this.layer);
 
       this.unicornioPlayer.animations.play('walk');
@@ -163,10 +163,6 @@
       cy = this.world.centerY;
 
       if (this.jugando) {  
-        this.player.body.collideWorldBounds = true;
-        this.player.body.velocity.x = 0;
-        this.player.body.velocity.y = 0;
-
         this.moveChar();
       }
       else {
@@ -188,6 +184,10 @@
 
     //FUNCION QUE PERMITE EL MOVIMIENTO DEL PERSONAJE
     moveChar:function(){
+      this.player.body.collideWorldBounds = true;
+      this.player.body.velocity.x = 0;
+      this.player.body.velocity.y = 0;
+
       if (this.input.keyboard.isDown(Phaser.Keyboard.LEFT))
         {
           this.player.animations.play('left');

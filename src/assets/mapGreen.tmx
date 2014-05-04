@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="51" height="51" tilewidth="120" tileheight="120">
+ <tileset firstgid="1" name="Tilemapdef" tilewidth="120" tileheight="120">
+  <image source="tilesetGreen.png" width="360" height="840"/>
+ </tileset>
+ <tileset firstgid="22" name="IzquierdaGIGANTE" tilewidth="120" tileheight="120">
+  <image source="tilesetGreen.png" width="6120" height="6120"/>
+ </tileset>
+ <layer name="Capa de Patrones 1" width="51" height="51">
+  <data encoding="base64" compression="zlib">
+   eJy9Wtlu4zAMVNs0rps06Xb//183BiqAmc4MKa/SBwKJD4nn8JCfWmvPhF5u9BR+n4HivcONvr7pSJ5Ra5zJu+ydeA3XQj5eCR3DvaN57whrfIQ9L3Cd6ecg9oz7Io9RX4yP9xu93egU9r60ez4O5B7u74jpR8my8bPCM53HNeiE8dHte2k5H+76e9BH37vTCvpgtnsGWSNPyuZMFuQp2mm7v8C1rjvUZeQX42TEhtXn2b4XuJfpBG2pdB3l6fpAneA15ido8xPsofymopOPpn0Sn2NYiTpwmIK6ZzjB/ApjTukO7fyWPDOKDdF3MXaYLAuxq8LUrrv4DtM92tvhgcKGPZiH/p75DMsLTr/MN2KeO7f7eFK472Rx8eLirK+7tJ+6PpF9kI8oi6oDKvHr4sXlAtRBhmdOZ+iLSpbID4tfhrtsD8Zr1acq/1HfTBbHT8VuVV6dDRWmsLwywm/Gn/J7tqfCNKyLWB3lMM6Rw7+Io10WlrOqOmK452om528sf2F9q/TR4/XPDpv+D1ViJ7Obiscoi8tjCn83+juBoiwL2V9hfrTfCa6x/pL5fvSf2bKovlTVYhtdi/bM7P4oWRSuI06iLAonKnl+lizY10fbs1oCcR77SmZP1lvHtWbJUs3HyoaqLu18rk3L0mWfJQvrW12NF3W/tPuYZr1RfEf1j7PjJZuRqHo1s2sF72fIwnrLSK4HYHxizcBmOqxfnCFL5Bl9jcmFtS/ik/Iz1bfOxDHHa0bVmkH14PH3bFlGicmS1XeIbzNlqdZLrHZ2WOt6VZaDZsiiahWMA5Vn2EzWzeR+w8fQ9iwfMH6xTsYewc2f45qzcazaQzlZVMy7a78V+ywfYN/HcLznFsR5NT+bIQvDHZwZOxtd231sqJnC6DyB2U/lWfSX0dljlKVyRjZqf9Zf4CxG9RZqFoC4zNZhtXE232a8Y8+q5tFu1t/rXTdnZmt1O+B8sXqWyeZfe2b7KpZH5mZdl64PxXoA40mdZ6IvqLxdiSPmE8w/Y//izmoqtZ7CcNa3q3pWzeNxttzPB7BfVPxmPWvlPJP15WzOHX1M5eXKdwcuJpSPKT9TZ3ej/u906fpfhV3ZudQjCPt7VhMqudlMrdJfqxh258OOshrY5Z3ot+r7hOwMDXNy7AfUPJt925J9O4H5AeuavobTdfU8qHp/FAvVb1XXsJyn5pzsPEl9f8F8UPkHrsH6VsU/O0d1MzKF0e5ZfJ7FDZ5hZzNYFpfsfHrPOd/I8ypusF7b8w2HmpmpmoPVd3tlfxS+Y15em87TKhd9fhM7j1U1b5dFvbuHtnX/AZA/UQE=
+  </data>
+ </layer>
+</map>
