@@ -38,11 +38,17 @@
       this.player = this.add.sprite(2380, 2400, 'player');
       this.player.anchor.setTo(0.5, 0.5);
 
-      this.player.animations.add('down', [3], 10, true);
-      this.player.animations.add('left', [0], 10, true);
-      this.player.animations.add('right', [1], 10, true);
-      this.player.animations.add('up', [2], 10, true);
-      this.player.animations.play('down');
+      this.player.animations.add('up',    [4, 8,  12, 16], 8, true);
+      this.player.animations.add('down',  [5, 9,  13, 17], 8, true);
+      this.player.animations.add('right', [6, 10, 14, 18], 8, true);
+      this.player.animations.add('left',  [7, 11, 15, 19], 10, true);
+      this.player.animations.add('stopUp',[0], 8, true);
+      this.player.animations.add('stopDown',[1], 8, true);
+      this.player.animations.add('stopRigt',[2], 8, true);
+      this.player.animations.add('stopLeft',[3], 8, true);
+
+      this.animationNow = 'stopDown';
+      
       this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
 
 
@@ -72,31 +78,38 @@
       if (this.input.keyboard.isDown(Phaser.Keyboard.LEFT))
         {
           this.player.animations.play('left');
+          this.animationNow = 'stopLeft';
           this.player.body.velocity.x = -600;
         }
-        if (this.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
+      if (this.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
         {
           this.player.animations.play('right');
+          this.animationNow = 'stopRigt';
           this.player.body.velocity.x = 600;
         }
-        if (this.input.keyboard.isDown(Phaser.Keyboard.UP))
+      if (this.input.keyboard.isDown(Phaser.Keyboard.UP))
         {
           this.player.animations.play('up');
+          this.animationNow = 'stopUp';
           this.player.body.velocity.y= -600;
         }
-        if (this.input.keyboard.isDown(Phaser.Keyboard.DOWN))
+      if (this.input.keyboard.isDown(Phaser.Keyboard.DOWN))
         {
           this.player.animations.play('down');
+          this.animationNow = 'stopDown';
           this.player.body.velocity.y = 600;
         }
-        if ((this.input.keyboard.isDown(Phaser.Keyboard.DOWN)) && (this.input.keyboard.isDown(Phaser.Keyboard.UP)))
+      if ((this.input.keyboard.isDown(Phaser.Keyboard.DOWN)) && (this.input.keyboard.isDown(Phaser.Keyboard.UP)))
         {
           this.player.body.velocity.y = 0;
         }
-        if ((this.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) && (this.input.keyboard.isDown(Phaser.Keyboard.LEFT)))
+      if ((this.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) && (this.input.keyboard.isDown(Phaser.Keyboard.LEFT)))
         {
           this.player.body.velocity.x = 0;
         }
+      if (!(this.input.keyboard.isDown(Phaser.Keyboard.LEFT)) && !(this.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) && !(this.input.keyboard.isDown(Phaser.Keyboard.UP)) && !(this.input.keyboard.isDown(Phaser.Keyboard.DOWN)) ) {
+        this.player.animations.play(this.animationNow);
+      }
     },
   };
 
