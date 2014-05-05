@@ -82,8 +82,7 @@
       this.dialogoUnicornioUnoDos = "[2] Jo, chico. ¡Vaya decepción me he llevado! \n¿Te apetece sentarte aqui, \ny tomarte unas terapéuticas conmigo? \nSon sólo 3.000dd's la unidad.";
       this.dialogoUnicornioUnoTres = "[3] Menos mal. No sé que habría hecho si \nllega a aparecer ese monstruo por aqui. \nQuizá... le hubiera ofrecido unas terapéuticas.";
       this.respuestasCharDos = "     ¡¿3.000dd's?! ¿Estás fumao o qué? ¡Anda a pastar!\n\n     No, gracias, no tengo dinero.";
-      this.dialogoUnicornioDosUno = 'El laberinto gira en el sentido de las agujas del reloj.';
-      this.dialogoUnicornioDosDos = 'El laberinto gira en el sentido contrario de las agujas del reloj';
+      this.dialogoUnicornioDosUno = "¿Pero qué? No se puede ir por la vida asi, majo. \nToma esto y lárgate de aqui, \n¡#@¬&¬€! ¡#@€$%&! ¡$&$%!.";
 
       this.contadorDialogo = 0;
       this.primerDialogo = false;
@@ -322,12 +321,9 @@
         else if(this.quintoDialogo) {
           this.quintoDialogo = false;
           this.dialogoFinal = true;
-        }
-        else if(this.dialogoFinal){
           this.respuesta1 = false;
           this.respuesta2 = false;
           this.respuesta3 = false;
-          this.dialogoFinal = false;
           this.jugando = true;
           this.box.exists = false;
           this.unicornioChar.exists = false;
@@ -384,17 +380,11 @@
           this.textizador(this.respuestasCharDos, 1500);
           this.dialogoText.text = this.textoTotal;
           this.selection2();
-        }
-        
+        } 
+
         else if(this.quintoDialogo){
-          if(this.respuesta1){
             this.textizador(this.dialogoUnicornioDosUno, 1);
-            this.dialogoText.text = this.textoTotal;
-          }
-          else if(this.respuesta2){
-            this.textizador(this.dialogoUnicornioDosDos, 1);
-            this.dialogoText.text = this.textoTotal;
-          }
+            this.dialogoText.text = this.textoTotal;    
         }
     },
 
