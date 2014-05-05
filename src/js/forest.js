@@ -316,69 +316,69 @@
     continueTexting:function(){
       if (this.input.keyboard.isDown(Phaser.Keyboard.ENTER))
       {
-        this.timeContinue = this.time.now;
-        this.textoTotal = '';
-        this.timeAhorita = this.time.now;
-        this.ntotal = 0;
-        if(this.jugando) {
-          this.jugando = false;
-          if (!this.hablado){
-            this.primerDialogo = true;
+        //if ((this.distance(this.player, this.unicornioPlayer) < 500){
+          this.timeContinue = this.time.now;
+          this.textoTotal = '';
+          this.timeAhorita = this.time.now;
+          this.ntotal = 0;
+          if(this.jugando) {
+            this.jugando = false;
+            if (!this.hablado){
+              this.primerDialogo = true;
+            }
+            else if (this.hablado){
+              this.dialogoSiguienteBool = true;
+            }
+            this.box.exists = true;
+            this.unicornioChar.exists = true;
           }
-          else if (this.hablado){
-            this.dialogoSiguienteBool = true;
+          else if(this.primerDialogo) {
+            this.primerDialogo = false;
+            this.segundoDialogo = true;
           }
-          this.box.exists = true;
-          this.unicornioChar.exists = true;
-        }
-        else if(this.primerDialogo) {
-          this.primerDialogo = false;
-          this.segundoDialogo = true;
-        }
-        else if(this.segundoDialogo) {
-          this.segundoDialogo = false;
-          this.tercerDialogo = true;
-        }
-        else if(this.tercerDialogo) {
-          this.tercerDialogo = false;
-          this.cuartoDialogo = true;
-        }
-        else if(this.cuartoDialogo) {
-          this.cuartoDialogo = false;
-          this.quintoDialogo = true;
-        }
-        else if(this.quintoDialogo) {
-          this.quintoDialogo = false;
-          this.respuesta1 = false;
-          this.respuesta2 = false;
-          this.respuesta3 = false;
-          this.jugando = true;
-          this.box.exists = false;
-          this.unicornioChar.exists = false;
-          this.hablado = true;
-          this.dialogoText.text = '';
-        }
-        else if (this.dialogoSiguienteBool) {
-          this.dialogoSiguienteBool = false;
-          this.jugando = true;
-          this.box.exists = false;
-          this.unicornioChar.exists = false;
-          this.dialogoText.text = '';
-
-        }
-
-        if (this.selector1.exists){
-          this.selector1.exists = false;
-          this.respuesta1 = true;
-        }
-        else if (this.selector2.exists){
-          this.selector2.exists = false;
-          this.respuesta2 = true;
-        }
-        else if (this.selector3.exists){
-          this.selector3.exists = false;
-          this.respuesta3 = true;
-        }
+          else if(this.segundoDialogo) {
+            this.segundoDialogo = false;
+            this.tercerDialogo = true;
+          }
+          else if(this.tercerDialogo) {
+            this.tercerDialogo = false;
+            this.cuartoDialogo = true;
+          }
+          else if(this.cuartoDialogo) {
+            this.cuartoDialogo = false;
+            this.quintoDialogo = true;
+          }
+          else if(this.quintoDialogo) {
+            this.quintoDialogo = false;
+            this.respuesta1 = false;
+            this.respuesta2 = false;
+            this.respuesta3 = false;
+            this.jugando = true;
+            this.box.exists = false;
+            this.unicornioChar.exists = false;
+            this.hablado = true;
+            this.dialogoText.text = '';
+          }
+          else if (this.dialogoSiguienteBool) {
+            this.dialogoSiguienteBool = false;
+            this.jugando = true;
+            this.box.exists = false;
+            this.unicornioChar.exists = false;
+            this.dialogoText.text = '';
+          }
+          if (this.selector1.exists){
+            this.selector1.exists = false;
+            this.respuesta1 = true;
+          }
+          else if (this.selector2.exists){ 
+            this.selector2.exists = false;
+            this.respuesta2 = true;
+          }
+          else if (this.selector3.exists){
+            this.selector3.exists = false;
+            this.respuesta3 = true;
+          }
+        //}
       }
     },
 
@@ -426,9 +426,11 @@
               this.textizador(this.dialogoSiguiente, 1000);
               this.dialogoText.text = this.textoTotal;
           }
-        
-
     },
+
+    // distance: function (uno, dos) {
+    //   return Math.sqrt((uno.x-dos.x)*(uno.x-dos.x)+(uno.y-dos.y)*(uno.y-dos.y));
+    // },
 
 
   };
