@@ -196,55 +196,6 @@
       }
     },
 
-    dialogueUnicorn:function(){
-        this.stateText.anchor.setTo(0.5, 0.5);
-        this.stateText.visible = false;
-
-        if(this.primerDialogo){
-          this.textizador(this.dialogoUno, 6000);
-          this.dialogoText.text = this.textoTotal;
-        }
-
-        else if(this.segundoDialogo){
-          this.textizador(this.respuestasCharUno, 1800);
-          this.dialogoText.text = this.textoTotal;
-          this.selection3();
-        }
-
-        else if(this.tercerDialogo){
-          if(this.respuesta1){
-            this.textizador(this.dialogoUnicornioUnoUno, 2500);
-          }
-          else if(this.respuesta2){
-            this.textizador(this.dialogoUnicornioUnoDos, 2500);
-          }
-          else if(this.respuesta3){
-            this.textizador(this.dialogoUnicornioUnoTres, 2500);
-          }
-          this.dialogoText.text = this.textoTotal;
-        }
-
-        else if(this.cuartoDialogo){
-          this.respuesta1 = false;
-          this.respuesta2 = false;
-          this.respuesta3 = false;
-          this.textizador(this.respuestasCharDos, 1500);
-          this.dialogoText.text = this.textoTotal;
-          this.selection2();
-        }
-        
-        else if(this.quintoDialogo){
-          if(this.respuesta1){
-            this.textizador(this.dialogoUnicornioDosUno, 1000);
-            this.dialogoText.text = this.textoTotal;
-          }
-          else if(this.respuesta2){
-            this.textizador(this.dialogoUnicornioDosDos, 1000);
-            this.dialogoText.text = this.textoTotal;
-          }
-        }
-    },
-
     //FUNCION QUE HACE QUE EL TEXTO SE MUEVA POCO A POCO
     textizador: function (texto, tiempo) {
       this.ncaracteres = texto.length;
@@ -397,6 +348,56 @@
         }
       }
     },
+
+    dialogueUnicorn:function(){
+        this.stateText.anchor.setTo(0.5, 0.5);
+        this.stateText.visible = false;
+
+        if(this.primerDialogo){
+          this.textizador(this.dialogoUno, 6000);
+          this.dialogoText.text = this.textoTotal;
+        }
+
+        else if(this.segundoDialogo){
+          this.textizador(this.respuestasCharUno, 1800);
+          this.dialogoText.text = this.textoTotal;
+          this.selection3();
+        }
+
+        else if(this.tercerDialogo){
+          if(this.respuesta1){
+            this.textizador(this.dialogoUnicornioUnoUno, 2500);
+          }
+          else if(this.respuesta2){
+            this.textizador(this.dialogoUnicornioUnoDos, 2500);
+          }
+          else if(this.respuesta3){
+            this.textizador(this.dialogoUnicornioUnoTres, 2500);
+          }
+          this.dialogoText.text = this.textoTotal;
+        }
+
+        else if(this.cuartoDialogo){
+          this.respuesta1 = false;
+          this.respuesta2 = false;
+          this.respuesta3 = false;
+          this.textizador(this.respuestasCharDos, 1500);
+          this.dialogoText.text = this.textoTotal;
+          this.selection2();
+        }
+        
+        else if(this.quintoDialogo){
+          if(this.respuesta1){
+            this.textizador(this.dialogoUnicornioDosUno, 1);
+            this.dialogoText.text = this.textoTotal;
+          }
+          else if(this.respuesta2){
+            this.textizador(this.dialogoUnicornioDosDos, 1);
+            this.dialogoText.text = this.textoTotal;
+          }
+        }
+    },
+
 
   };
 
