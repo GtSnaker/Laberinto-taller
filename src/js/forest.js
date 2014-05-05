@@ -34,12 +34,12 @@
 
       this.jugando = true;
 
-      this.layer = this.map.createLayer('Capa de Patrones 1');
+      this.layer = this.map.createLayer('Capa de Patrones 1');     
       this.layer.resizeWorld();
 
       this.unicornioPlayer = this.add.sprite(2555, 2400, 'unicornioPlayer');
       this.unicornioPlayer.anchor.setTo(0.5, 0.5);
-      this.unicornioPlayer.scale.set(0.4);
+      this.unicornioPlayer.scale.set(0.4)
       this.unicornioPlayer.animations.add('walk', [0,1], 1.8, true);
 
       this.box = this.add.sprite(x, y, 'textBox');
@@ -48,17 +48,7 @@
       this.box.fixedToCamera = true;
       this.box.exists = false;
 
-      switch(window['laberinto'].Global.fromGameToForest) {
-        case 1:
-        this.player = this.add.sprite(5948, 2271, 'player');
-        break;
-        case 2:
-        this.player = this.add.sprite(5948, 4068, 'player');
-        break;
-        default:
-        this.player = this.add.sprite(2380, 2400, 'player');
-      }
-      //this.player = this.add.sprite(2380, 2400, 'player');
+      this.player = this.add.sprite(2380, 2400, 'player');
       this.player.anchor.setTo(0.5, 0.5);
 
       this.player.animations.add('up',    [4, 8,  12, 16], 8, true);
@@ -136,7 +126,7 @@
       this.selector1.fixedToCamera = true;
       this.selector1.exists = false;
 
-      this.respuesta1 = false;
+      this.respuesta1 = false; 
       this.respuesta2 = false;
       this.respuesta3 = false;
 
@@ -144,26 +134,13 @@
     },
 
     update: function () {
-
-      console.log("x es igual a:" + this.player.x);
-      console.log("y es igual a:" + this.player.y);
-      if (this.player.x > 6000) {
-        if (this.player.y> 3500){
-          window['laberinto'].Global.fromForestToGame = 1;
-          this.game.state.start('game');
-        }
-        if (this.player.y <3500){
-          window['laberinto'].Global.fromForestToGame = 2;
-        this.game.state.start('game');
-        }
-      }
       this.physics.arcade.collide(this.player, this.layer);
       this.physics.arcade.collide(this.player, this.unicornioPlayer);
 
       this.unicornioPlayer.animations.play('walk');
 
 
-      if (this.jugando) {
+      if (this.jugando) {  
         this.moveChar();
       }
       else {
@@ -318,14 +295,18 @@
     continueTexting:function(){
       if (this.input.keyboard.isDown(Phaser.Keyboard.ENTER))
       {
-      if (!this.hablado){
         this.timeContinue = this.time.now;
         this.textoTotal = '';
         this.timeAhorita = this.time.now;
         this.ntotal = 0;
         if(this.jugando) {
           this.jugando = false;
-          this.primerDialogo = true;
+          if (!this.hablado){
+            this.primerDialogo = true;
+          }
+          else if (this.hablado){
+            this.dialogoSiguienteBool = true;
+          }
           this.box.exists = true;
           this.unicornioChar.exists = true;
         }
@@ -347,7 +328,6 @@
         }
         else if(this.quintoDialogo) {
           this.quintoDialogo = false;
-          this.dialogoFinal = true;
           this.respuesta1 = false;
           this.respuesta2 = false;
           this.respuesta3 = false;
@@ -356,6 +336,14 @@
           this.unicornioChar.exists = false;
           this.hablado = true;
           this.dialogoText.text = '';
+        }
+        else if (this.dialogoSiguienteBool) {
+          this.dialogoSiguienteBool = false;
+          this.jugando = true;
+          this.box.exists = false;
+          this.unicornioChar.exists = false;
+          this.dialogoText.text = '';
+
         }
 
         if (this.selector1.exists){
@@ -371,19 +359,11 @@
           this.respuesta3 = true;
         }
       }
-      }
-      else if (this.hablado){
-        this.jugando = true;
-        this.box.exists = false;
-        this.unicornioChar.exists = false;
-        this.dialogoText.text = '';
-      }
     },
 
     dialogueUnicorn:function(){
         this.stateText.anchor.setTo(0.5, 0.5);
         this.stateText.visible = false;
-        if(!this.hablado){
           if(this.primerDialogo){
             this.textizador(this.dialogoUno, 6000);
             this.dialogoText.text = this.textoTotal;
@@ -418,16 +398,15 @@
           } 
 
           else if(this.quintoDialogo){
-              this.textizador(this.dialogoUnicornioDosUno, 1);
+              this.textizador(this.dialogoUnicornioDosUno, 2000);
               this.dialogoText.text = this.textoTotal;    
           }
-        }
-        else {
-          //if (this.dialogoSiguienteBool) {
-            this.textizador(this.dialogoSiguiente, 1500);
-            this.dialogoText.text = this.textoTotal;
-          //} 
-        }
+          else if(this.dialogoSiguienteBool){
+              this.textizador(this.dialogoSiguiente, 1000);
+              this.dialogoText.text = this.textoTotal;
+          }
+        
+
     },
 
 
