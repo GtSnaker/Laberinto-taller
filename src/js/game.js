@@ -38,8 +38,6 @@
       this.unicornioPlayer.anchor.setTo(0.5, 0.5);
       this.unicornioPlayer.scale.set(0.4)
       this.unicornioPlayer.animations.add('walk', [0,1], 1.8, true);
-      // this.unicornioPlayer.pivot.x = 25;
-      // this.unicornioPlayer.pivot.y = 36.5;
 
       this.slenderPlayer = this.add.sprite(2555, 2620, 'slenderBoy');
       this.slenderPlayer.anchor.setTo(0.5, 0.5);
@@ -51,7 +49,7 @@
         this.player = this.add.sprite(152, 4053, 'player');
         break;
         case 2:
-        this.player = this.add.sprite(152, 2295, 'player');152, 2295
+        this.player = this.add.sprite(152, 2295, 'player');//152, 2295
         break;
         default:
         this.player = this.add.sprite(2380, 2400, 'player');
@@ -161,8 +159,6 @@
     //EEEEEEEEEEE
     //EEEEEEEEEEE
     update: function () {
-       console.log("x es igual a:" + this.player.x);
-      console.log("y es igual a:" + this.player.y);
       var x, y, cx, cy;
       this.physics.arcade.collide(this.player, this.unicornioPlayer);
       this.physics.arcade.collide(this.player, this.slenderPlayer);

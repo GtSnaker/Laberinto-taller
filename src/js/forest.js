@@ -48,7 +48,17 @@
       this.box.fixedToCamera = true;
       this.box.exists = false;
 
-      this.player = this.add.sprite(2380, 2400, 'player');
+      switch(window['laberinto'].Global.fromGameToForest) {
+        case 1:
+        this.player = this.add.sprite(5948, 2271, 'player');
+        break;
+        case 2:
+        this.player = this.add.sprite(5948, 4068, 'player');
+        break;
+        default: this.player = this.add.sprite(2380, 2400, 'player');
+      }
+
+      //this.player = this.add.sprite(2380, 2400, 'player');
       this.player.anchor.setTo(0.5, 0.5);
 
       this.player.animations.add('up',    [4, 8,  12, 16], 8, true);
@@ -136,8 +146,19 @@
     update: function () {
       this.physics.arcade.collide(this.player, this.layer);
       this.physics.arcade.collide(this.player, this.unicornioPlayer);
-
       this.unicornioPlayer.animations.play('walk');
+
+      if (this.player.x > 6000) {
+        if (this.player.y > 3500) {
+          window['laberinto'].Global.fromForestToGame = 1,
+          this.game.state.start('game');
+        }
+        if (this.player.y < 3500) {
+          window['laberinto'].Global.fromForestToGame = 2,
+          this.game.state.start('game');
+        }
+      }
+
 
 
       if (this.jugando) {  
