@@ -83,7 +83,10 @@
       this.dialogoUnicornioUnoTres = "[3] Menos mal. No sé que habría hecho si \nllega a aparecer ese monstruo por aqui. \nQuizá... le hubiera ofrecido unas terapéuticas.";
       this.respuestasCharDos = "     ¡¿3.000dd's?! ¿Estás fumao o qué? ¡Anda a pastar!\n\n     No, gracias, no tengo dinero.";
       this.dialogoUnicornioDosUno = "¿Pero qué? No se puede ir por la vida asi, majo. \nToma esto y lárgate de aqui, \n¡#@¬&¬€! ¡#@€$%&! ¡$&$%!.";
+      this.dialogoSiguiente = "¡Déjame en paz! ¡Largo!";
 
+      this.hablado = false;
+      this.dialogoSiguienteBool = false;
       this.contadorDialogo = 0;
       this.primerDialogo = false;
       this.segundoDialogo = false;
@@ -93,7 +96,7 @@
       this.dialogoFinal = false;
 
       this.stateText = this.game.add.text(this.game.world.centerX, this.game.world.centerY,'', { fontSize: '84px', fill: '#fff' });
-      this.dialogoText = this.game.add.text(40, 447, '', { fontSize: '34px', fill: '#fff' });
+      this.dialogoText = this.game.add.text(40, 447, '', { fontSize: '34px', fill: '#fff'});
       this.dialogoText.fontSize = 27;
       this.dialogoText.fixedToCamera = true;
       this.textoTotal = '';
@@ -292,6 +295,7 @@
     continueTexting:function(){
       if (this.input.keyboard.isDown(Phaser.Keyboard.ENTER))
       {
+      if (!this.hablado){
         this.timeContinue = this.time.now;
         this.textoTotal = '';
         this.timeAhorita = this.time.now;
@@ -327,6 +331,7 @@
           this.jugando = true;
           this.box.exists = false;
           this.unicornioChar.exists = false;
+          this.hablado = true;
           this.dialogoText.text = '';
         }
 
@@ -343,48 +348,62 @@
           this.respuesta3 = true;
         }
       }
+      }
+      else if (this.hablado){
+        this.jugando = true;
+        this.box.exists = false;
+        this.unicornioChar.exists = false;
+        this.dialogoText.text = '';
+      }
     },
 
     dialogueUnicorn:function(){
         this.stateText.anchor.setTo(0.5, 0.5);
         this.stateText.visible = false;
-
-        if(this.primerDialogo){
-          this.textizador(this.dialogoUno, 6000);
-          this.dialogoText.text = this.textoTotal;
-        }
-
-        else if(this.segundoDialogo){
-          this.textizador(this.respuestasCharUno, 1800);
-          this.dialogoText.text = this.textoTotal;
-          this.selection3();
-        }
-
-        else if(this.tercerDialogo){
-          if(this.respuesta1){
-            this.textizador(this.dialogoUnicornioUnoUno, 2500);
+        if(!this.hablado){
+          if(this.primerDialogo){
+            this.textizador(this.dialogoUno, 6000);
+            this.dialogoText.text = this.textoTotal;
           }
-          else if(this.respuesta2){
-            this.textizador(this.dialogoUnicornioUnoDos, 2500);
+
+          else if(this.segundoDialogo){
+            this.textizador(this.respuestasCharUno, 1800);
+            this.dialogoText.text = this.textoTotal;
+            this.selection3();
           }
-          else if(this.respuesta3){
-            this.textizador(this.dialogoUnicornioUnoTres, 2500);
+
+          else if(this.tercerDialogo){
+            if(this.respuesta1){
+              this.textizador(this.dialogoUnicornioUnoUno, 2500);
+            }
+            else if(this.respuesta2){
+              this.textizador(this.dialogoUnicornioUnoDos, 2500);
+            }
+            else if(this.respuesta3){
+              this.textizador(this.dialogoUnicornioUnoTres, 2500);
+            }
+            this.dialogoText.text = this.textoTotal;
           }
-          this.dialogoText.text = this.textoTotal;
+
+          else if(this.cuartoDialogo){
+            this.respuesta1 = false;
+            this.respuesta2 = false;
+            this.respuesta3 = false;
+            this.textizador(this.respuestasCharDos, 1500);
+            this.dialogoText.text = this.textoTotal;
+            this.selection2();
+          } 
+
+          else if(this.quintoDialogo){
+              this.textizador(this.dialogoUnicornioDosUno, 1);
+              this.dialogoText.text = this.textoTotal;    
+          }
         }
-
-        else if(this.cuartoDialogo){
-          this.respuesta1 = false;
-          this.respuesta2 = false;
-          this.respuesta3 = false;
-          this.textizador(this.respuestasCharDos, 1500);
-          this.dialogoText.text = this.textoTotal;
-          this.selection2();
-        } 
-
-        else if(this.quintoDialogo){
-            this.textizador(this.dialogoUnicornioDosUno, 1);
-            this.dialogoText.text = this.textoTotal;    
+        else {
+          //if (this.dialogoSiguienteBool) {
+            this.textizador(this.dialogoSiguiente, 1500);
+            this.dialogoText.text = this.textoTotal;
+          //} 
         }
     },
 
