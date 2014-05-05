@@ -428,9 +428,10 @@
           }
     },
 
-    // distance: function (uno, dos) {
-    //   return Math.sqrt((uno.x-dos.x)*(uno.x-dos.x)+(uno.y-dos.y)*(uno.y-dos.y));
-    // },
+    distance: function (uno, dos) {
+      var r = Math.sqrt((uno.x-dos.x)*(uno.x-dos.x)+(uno.y-dos.y)*(uno.y-dos.y));
+      return r;
+    },
 
 
   };

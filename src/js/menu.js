@@ -23,7 +23,7 @@
 
       this.musicPlaying = false;
       if(!this.musicPlaying) {
-        this.music = this.game.add.audio('music2', 1, true);
+        this.music = this.game.add.audio('music1', 1, true);
         this.music.play('', 0, 1, true);
         this.musicPlaying = true;
       }

@@ -15,17 +15,19 @@
       this.load.onLoadComplete.addOnce(this.onLoadComplete, this);
       this.load.setPreloadSprite(this.asset);
 
-      this.load.image('portada00', 'assets/Portada00.png');
-      this.load.image('portada01', 'assets/Portada01.png');
-      this.load.spritesheet('player', 'assets/jimbo.png', 39.5, 52.7);
       this.load.bitmapFont('minecraftia', 'assets/minecraftia.png', 'assets/minecraftia.xml');
+
+      this.load.image('portada00', 'assets/Portada00.png');
+      this.load.image('portada01', 'assets/Portada01.png');     
       this.load.image('textBox', 'assets/textElements/cajaDeTexto.png');
       this.load.image('unicornio', 'assets/characters/unicornio/unicornioPeta.png');
+      this.load.image('flecha', 'assets/textElements/flecha.png');
+      this.load.image('degradado', 'assets/degradado.png');
+
+      this.load.spritesheet('player', 'assets/jimbo.png', 39.5, 52.7);
       this.load.spritesheet('unicornioPlayer', 'assets/unicornio.png', 295, 446);
       this.load.spritesheet('slenderBoy', 'assets/slenderBoy.png', 339, 324);
       this.load.spritesheet('deku', 'assets/deku.png', 28, 38);
-      this.load.image('flecha', 'assets/textElements/flecha.png');
-      this.load.image('degradado', 'assets/degradado.png');
       this.load.spritesheet('play', 'assets/botones.png', 366, 62);
 
       this.game.load.audio('music1', ['assets/sound/music1.mp3']);
