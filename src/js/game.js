@@ -46,7 +46,18 @@
       this.slenderPlayer.scale.set(0.4)
       this.slenderPlayer.animations.add('walk', [0,1], 1.8, true);
 
-      this.player = this.add.sprite(2380, 2400, 'player');
+      switch(window['laberinto'].Global.fromForestToGame) {
+        case 1:
+        this.player = this.add.sprite(152, 4053, 'player');
+        break;
+        case 2:
+        this.player = this.add.sprite(152, 2295, 'player');152, 2295
+        break;
+        default:
+        this.player = this.add.sprite(2380, 2400, 'player');
+      }
+      
+      //this.player = this.add.sprite(2380, 2400, 'player');
       this.player.anchor.setTo(0.5, 0.5);
 
       this.player.animations.add('up',    [4, 8,  12, 16], 8, true);
@@ -150,7 +161,8 @@
     //EEEEEEEEEEE
     //EEEEEEEEEEE
     update: function () {
-
+       console.log("x es igual a:" + this.player.x);
+      console.log("y es igual a:" + this.player.y);
       var x, y, cx, cy;
       this.physics.arcade.collide(this.player, this.unicornioPlayer);
       this.physics.arcade.collide(this.player, this.slenderPlayer);
@@ -160,9 +172,16 @@
       this.unicornioPlayer.animations.play('walk');
       this.slenderPlayer.animations.play('walk');
       this.deku.animations.play('move');
-      //Cambiamos de nivel
+      //Cambiamos de nivel cambiando de valor la variable de als puertas
       if (this.player.x <70) {
+        if (this.player.y> 3000){
+          window['laberinto'].Global.fromGameToForest = 2;
+          this.game.state.start('forest');
+        }
+        if (this.player.y <3000){
+          window['laberinto'].Global.fromGameToForest = 1;
         this.game.state.start('forest');
+        }
       }
       //console.log(this.distance(this.player, this.unicornioPlayer));
 
