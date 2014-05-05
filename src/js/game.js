@@ -140,7 +140,7 @@
       this.selector1.fixedToCamera = true;
       this.selector1.exists = false;
 
-      this.respuesta1 = false; 
+      this.respuesta1 = false;
       this.respuesta2 = false;
       this.respuesta3 = false;
 
@@ -151,7 +151,7 @@
     //EEEEEEEEEEE
     update: function () {
 
-      var x, y, cx, cy, dx, dy, angle, scale;
+      var x, y, cx, cy;
       this.physics.arcade.collide(this.player, this.unicornioPlayer);
       this.physics.arcade.collide(this.player, this.slenderPlayer);
       //this.physics.arcade.collide(this.player, this.deku);
@@ -160,7 +160,10 @@
       this.unicornioPlayer.animations.play('walk');
       this.slenderPlayer.animations.play('walk');
       this.deku.animations.play('move');
-
+      //Cambiamos de nivel
+      if (this.player.x <70) {
+        this.game.state.start('forest');
+      }
       //console.log(this.distance(this.player, this.unicornioPlayer));
 
       x = this.input.position.x;
@@ -168,7 +171,7 @@
       cx = this.world.centerX;
       cy = this.world.centerY;
 
-      if (this.jugando) {  
+      if (this.jugando) {
         this.moveChar();
       }
       else {
