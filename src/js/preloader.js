@@ -23,6 +23,8 @@
       this.load.image('unicornio', 'assets/characters/unicornio/unicornioPeta.png');
       this.load.image('flecha', 'assets/textElements/flecha.png');
       this.load.image('degradado', 'assets/degradado.png');
+      this.load.image('antorcha', 'assets/antorcha.png');
+      this.load.image('piedra', 'assets/piedra.png');
 
       this.load.spritesheet('player', 'assets/jimbo.png', 39.5, 52.7);
       this.load.spritesheet('unicornioPlayer', 'assets/unicornio.png', 295, 446);
