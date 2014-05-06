@@ -148,6 +148,7 @@
       this.physics.arcade.collide(this.player, this.unicornioPlayer);
       this.unicornioPlayer.animations.play('walk');
 
+
       if (this.player.x > 6000) {
         if (this.player.y > 3500) {
           window['laberinto'].Global.fromForestToGame = 1,
@@ -316,7 +317,9 @@
     continueTexting:function(){
       if (this.input.keyboard.isDown(Phaser.Keyboard.ENTER))
       {
-        //if ((this.distance(this.player, this.unicornioPlayer) < 500){
+        
+        
+        if ( (this.distance(this.player, this.unicornioPlayer)) < 125){
           this.timeContinue = this.time.now;
           this.textoTotal = '';
           this.timeAhorita = this.time.now;
@@ -378,7 +381,7 @@
             this.selector3.exists = false;
             this.respuesta3 = true;
           }
-        //}
+        }
       }
     },
 
