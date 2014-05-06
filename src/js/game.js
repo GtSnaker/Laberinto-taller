@@ -51,7 +51,7 @@
 
       this.slenderPlayer = this.add.sprite(2555, 2620, 'slenderBoy');
       this.slenderPlayer.anchor.setTo(0.5, 0.5);
-      this.slenderPlayer.scale.set(0.4)
+      this.slenderPlayer.scale.set(0.4);
       this.slenderPlayer.animations.add('walk', [0,1], 1.8, true);
 
       switch(window['laberinto'].Global.fromForestToGame) {
@@ -59,13 +59,12 @@
         this.player = this.add.sprite(152, 4053, 'player');
         break;
         case 2:
-        this.player = this.add.sprite(152, 2295, 'player');//152, 2295
+        this.player = this.add.sprite(152, 2295, 'player');
         break;
         default:
         this.player = this.add.sprite(2380, 2400, 'player');
       }
       
-      //this.player = this.add.sprite(2380, 2400, 'player');
       this.player.anchor.setTo(0.5, 0.5);
 
       this.player.animations.add('up',    [4, 8,  12, 16], 8, true);
@@ -155,8 +154,6 @@
       //FIN UPDATEEEEEEE
       //EEEEEEEEEEEEEEEE
       //EEEEEEEEEEEEEEEE
-      
-    //AQUI TERMINAMOS LA FUNCION UPDATE
     },
 
     onInputDown: function () {
