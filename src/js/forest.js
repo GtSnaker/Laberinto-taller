@@ -37,7 +37,10 @@
       this.layer = this.map.createLayer('Capa de Patrones 1');     
       this.layer.resizeWorld();
 
-      this.torchItem = this.add.sprite(50, 610, 'antorcha');
+      this.itemBox = this.add.sprite(40, 570,'itemBox');
+      this.itemBox.fixedToCamera = true;
+
+      this.torchItem = this.add.sprite(50, 607, 'antorcha');
       this.torchItem.fixedToCamera = true;
       if (window['laberinto'].Global.torch){
         this.torchItem.exists = true;

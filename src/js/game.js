@@ -36,17 +36,6 @@
 
       this.torch = this.add.sprite(2320, 2620, 'antorcha');
 
-      this.torchItem = this.add.sprite(50, 610, 'antorcha');
-      this.torchItem.fixedToCamera = true;
-      if (window['laberinto'].Global.torch){
-        this.torchItem.exists = true;
-        this.torch.exists = false;
-      }
-      else{
-        this.torchItem.exists = false;
-      }
-
-
       //this.rock1 = this.add.sprite(2320, 2400, 'piedra');
 
       this.slenderPlayer = this.add.sprite(2555, 2620, 'slenderBoy');
@@ -96,7 +85,20 @@
 
       this.jugando = true;
 
-      this.box = this.add.sprite(x, y, 'textBox');
+      this.itemBox = this.add.sprite(40, 570,'itemBox');
+      this.itemBox.fixedToCamera = true;
+
+      this.torchItem = this.add.sprite(50, 607, 'antorcha');
+      this.torchItem.fixedToCamera = true;
+      if (window['laberinto'].Global.torch){
+        this.torchItem.exists = true;
+        this.torch.exists = false;
+      }
+      else{
+        this.torchItem.exists = false;
+      }
+
+      this.box = this.add.sprite(25, 435, 'textBox');
       this.box.x = 25;
       this.box.y = 435;
       this.box.fixedToCamera = true;
