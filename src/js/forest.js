@@ -37,6 +37,11 @@
       this.layer = this.map.createLayer('Capa de Patrones 1');     
       this.layer.resizeWorld();
 
+      this.unicornioPlayer = this.add.sprite(2555, 2400, 'unicornioPlayer');
+      this.unicornioPlayer.anchor.setTo(0.5, 0.5);
+      this.unicornioPlayer.scale.set(0.4)
+      this.unicornioPlayer.animations.add('walk', [0,1], 1.8, true);
+
       this.itemBox = this.add.sprite(40, 570,'itemBox');
       this.itemBox.fixedToCamera = true;
 
@@ -48,11 +53,6 @@
       else{
         this.torchItem.exists = false;
       }
-
-      this.unicornioPlayer = this.add.sprite(2555, 2400, 'unicornioPlayer');
-      this.unicornioPlayer.anchor.setTo(0.5, 0.5);
-      this.unicornioPlayer.scale.set(0.4)
-      this.unicornioPlayer.animations.add('walk', [0,1], 1.8, true);
 
       this.box = this.add.sprite(x, y, 'textBox');
       this.box.x = 25;
@@ -70,7 +70,6 @@
         default: this.player = this.add.sprite(2380, 2400, 'player');
       }
 
-      //this.player = this.add.sprite(2380, 2400, 'player');
       this.player.anchor.setTo(0.5, 0.5);
 
       this.player.animations.add('up',    [4, 8,  12, 16], 8, true);
