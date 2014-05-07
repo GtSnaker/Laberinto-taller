@@ -167,13 +167,45 @@
       this.player.body.velocity.x = 0;
       this.player.body.velocity.y = 0;
 
-      if (this.input.keyboard.isDown(Phaser.Keyboard.LEFT))
+      if( this.input.keyboard.isDown(Phaser.Keyboard.LEFT) &&
+          this.input.keyboard.isDown(Phaser.Keyboard.DOWN))
+      {
+        this.player.body.velocity.x = -600;
+        this.player.animations.play('down');
+        this.animationNow = 'stopDown';
+        this.player.body.velocity.y = 600;
+      }
+      else if( this.input.keyboard.isDown(Phaser.Keyboard.LEFT) &&
+          this.input.keyboard.isDown(Phaser.Keyboard.UP))
+      {
+        this.player.body.velocity.x = -600;
+        this.player.animations.play('up');
+        this.animationNow = 'stopUp';
+        this.player.body.velocity.y = -600;
+      }  
+      else if (this.input.keyboard.isDown(Phaser.Keyboard.LEFT))
         {
           this.player.animations.play('left');
           this.animationNow = 'stopLeft';
           this.player.body.velocity.x = -600;
         }
-      if (this.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
+      if( this.input.keyboard.isDown(Phaser.Keyboard.RIGHT) &&
+          this.input.keyboard.isDown(Phaser.Keyboard.DOWN))
+      {
+        this.player.body.velocity.x = 600;
+        this.player.animations.play('down');
+        this.animationNow = 'stopDown';
+        this.player.body.velocity.y = 600;
+      }
+      else if( this.input.keyboard.isDown(Phaser.Keyboard.RIGHT) &&
+          this.input.keyboard.isDown(Phaser.Keyboard.UP))
+      {
+        this.player.body.velocity.x = 600;
+        this.player.animations.play('up');
+        this.animationNow = 'stopUp';
+        this.player.body.velocity.y = -600;
+      }  
+      else if (this.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
         {
           this.player.animations.play('right');
           this.animationNow = 'stopRigt';
