@@ -88,6 +88,9 @@
       this.itemBox = this.add.sprite(40, 570,'itemBox');
       this.itemBox.fixedToCamera = true;
 
+      this.orbBox = this.add.sprite(560, 570,'orbBox');
+      this.orbBox.fixedToCamera = true;
+
       this.torchItem = this.add.sprite(50, 607, 'antorcha');
       this.torchItem.fixedToCamera = true;
       if (window['laberinto'].Global.torch){

@@ -32,5 +32,6 @@
   window['laberinto'] = window['laberinto'] || {};
   window['laberinto'].Boot = Boot;
   window['laberinto'].Global ={fromGameToForest: null, fromForestToGame: null, torch: false};
+  window['laberinto']._ = _;
 }());
 

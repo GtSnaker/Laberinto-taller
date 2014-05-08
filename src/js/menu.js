@@ -4,6 +4,8 @@
   function Menu() {
     this.titleTxt = null;
     this.startTxt = null;
+    this.portada01 = null;
+    this.portada00 = null;
   }
 
   Menu.prototype = {
@@ -28,23 +30,15 @@
         this.musicPlaying = true;
       }
 
-
-      // this.titleTxt = this.add.bitmapText(x, y, 'minecraftia', 'Example Game' );
-      // this.titleTxt.align = 'center';
-      // this.titleTxt.x = this.game.width / 2 - this.titleTxt.textWidth / 2;
-
-      // y = y + this.titleTxt.height + 5;
-      // this.startTxt = this.add.bitmapText(x, y, 'minecraftia', 'START');
-      // this.startTxt.align = 'center';
-      // this.startTxt.x = this.game.width / 2 - this.startTxt.textWidth / 2;
-
       this.input.onDown.add(this.onDown, this);
+   
+      var that = this;
+      setTimeout(function(){ that.portada00.exists = false}, 6000);
+    
     },
 
     update: function () {
-      if(this.time.now - this.timeFading > 6000){
-        this.portada00.exists = false;
-      }
+
     },
 
     onDown: function () {

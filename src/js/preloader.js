@@ -26,6 +26,7 @@
       this.load.image('antorcha', 'assets/antorcha.png');
       this.load.image('piedra', 'assets/piedra.png');
       this.load.image('itemBox', 'assets/cajaItems.png');
+      this.load.image('orbBox', 'assets/cajaOrbes.png');
 
       this.load.spritesheet('player', 'assets/jimbo.png', 39.5, 52.7);
       this.load.spritesheet('unicornioPlayer', 'assets/unicornio.png', 295, 446);
