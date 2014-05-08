@@ -45,6 +45,9 @@
       this.itemBox = this.add.sprite(40, 570,'itemBox');
       this.itemBox.fixedToCamera = true;
 
+      this.orbBox = this.add.sprite(560, 570,'orbBox');
+      this.orbBox.fixedToCamera = true;
+
       this.torchItem = this.add.sprite(50, 607, 'antorcha');
       this.torchItem.fixedToCamera = true;
       if (window['laberinto'].Global.torch){
@@ -62,12 +65,15 @@
 
       switch(window['laberinto'].Global.fromGameToForest) {
         case 1:
-        this.player = this.add.sprite(5948, 2271, 'player');
+        this.player = this.add.sprite(6070, 2271, 'player');
+        this.animationNow = 'stopLeft';
         break;
         case 2:
-        this.player = this.add.sprite(5948, 4068, 'player');
+        this.player = this.add.sprite(6070, 4068, 'player');
+        this.animationNow = 'stopLeft';
         break;
         default: this.player = this.add.sprite(2380, 2400, 'player');
+        this.animationNow = 'stopDown';
       }
 
       this.player.anchor.setTo(0.5, 0.5);
@@ -80,8 +86,6 @@
       this.player.animations.add('stopDown',[1], 8, true);
       this.player.animations.add('stopRigt',[2], 8, true);
       this.player.animations.add('stopLeft',[3], 8, true);
-
-      this.animationNow = 'stopDown';
 
       this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
 
@@ -151,6 +155,14 @@
       this.respuesta2 = false;
       this.respuesta3 = false;
 
+      this.negro = this.add.sprite(0,0, 'negro');
+      this.negro.fixedToCamera = true;
+      this.negro.exists = true;
+      this.negro.alpha = 1;
+      this.game.add.tween(this.negro).to( { alpha: 0 }, 250, Phaser.Easing.Linear.None, true, 1, 500, true);
+      var that = this;
+      setTimeout(function(){ that.negro.exists = false;}, 250);
+
       this.input.onDown.add(this.onDown, this);
     },
 
@@ -160,7 +172,7 @@
       this.unicornioPlayer.animations.play('walk');
 
 
-      if (this.player.x > 6000) {
+      if (this.player.x > 6100) {
         if (this.player.y > 3500) {
           window['laberinto'].Global.fromForestToGame = 1,
           this.game.state.start('game');

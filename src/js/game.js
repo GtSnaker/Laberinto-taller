@@ -45,13 +45,16 @@
 
       switch(window['laberinto'].Global.fromForestToGame) {
         case 1:
-        this.player = this.add.sprite(152, 4053, 'player');
+        this.player = this.add.sprite(50, 4053, 'player');
+        this.animationNow = 'stopRigt';
         break;
         case 2:
-        this.player = this.add.sprite(152, 2295, 'player');
+        this.player = this.add.sprite(50, 2295, 'player');
+        this.animationNow = 'stopRigt';
         break;
         default:
         this.player = this.add.sprite(2380, 2400, 'player');
+        this.animationNow = 'stopDown';
       }
       
       this.player.anchor.setTo(0.5, 0.5);
@@ -64,7 +67,7 @@
       this.player.animations.add('stopDown',[1], 8, true);
       this.player.animations.add('stopRigt',[2], 8, true);
       this.player.animations.add('stopLeft',[3], 8, true);
-      this.animationNow = 'stopDown';
+      //this.animationNow = 'stopDown';
 
       this.deku = this.add.sprite(2100, 2440, 'deku');
       this.deku.animations.add('move', [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], 3, true);
@@ -110,6 +113,13 @@
       this.degradado = this.add.sprite(0,0,'degradado');
       this.degradado.fixedToCamera = true;
 
+      this.negro = this.add.sprite(0,0, 'negro');
+      this.negro.fixedToCamera = true;
+      this.negro.exists = true;
+      this.negro.alpha = 1;
+      this.game.add.tween(this.negro).to( { alpha: 0 }, 250, Phaser.Easing.Linear.None, true, 1, 500, true);
+      var that = this;
+      setTimeout(function(){ that.negro.exists = false;}, 250);
     },
 
     //UPDATEEEEEE
@@ -130,13 +140,21 @@
       this.deku.animations.play('move');
 
       //Cambiamos de nivel cambiando de valor la variable de als puertas
-      if (this.player.x <70) {
+      if (this.player.x <20) {
         if (this.player.y> 3000){
           window['laberinto'].Global.fromGameToForest = 2;
-          this.game.state.start('forest');
+          // this.negro.exists = true;
+          // this.game.add.tween(this.negro).to( { alpha: 1 }, 250, Phaser.Easing.Linear.None, true, 1, 250, true);
+          // var that = this;
+          // setTimeout(function(){ that.game.state.start('forest'); that.negro.exists = false;}, 500); 
+          this.game.state.start('forest');        
         }
         if (this.player.y <3000){
           window['laberinto'].Global.fromGameToForest = 1;
+          // this.negro.exists = true;
+          // this.game.add.tween(this.negro).to( { alpha: 1 }, 250, Phaser.Easing.Linear.None, true, 1, 250, true);
+          // var that = this;
+          // setTimeout(function(){ that.game.state.start('forest'); that.negro.exists = false;}, 500);  
           this.game.state.start('forest');
         }
       }
@@ -155,6 +173,8 @@
       cy = this.world.centerY;
 
       this.moveChar();
+
+
 
       //FIN UPDATEEEEEEE
       //EEEEEEEEEEEEEEEE
