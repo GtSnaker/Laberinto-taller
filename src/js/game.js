@@ -122,11 +122,8 @@
       setTimeout(function(){ that.negro.exists = false;}, 250);
     },
 
-    //UPDATEEEEEE
-    //EEEEEEEEEEE
-    //EEEEEEEEEEE
+
     update: function () {
-      var x, y, cx, cy;
       this.physics.arcade.collide(this.player, this.slenderPlayer);
       this.physics.arcade.collide(this.player, this.torch, function (){ 
         window['laberinto'].Global.torch = true; 
@@ -139,22 +136,13 @@
       this.slenderPlayer.animations.play('walk');
       this.deku.animations.play('move');
 
-      //Cambiamos de nivel cambiando de valor la variable de als puertas
       if (this.player.x <20) {
         if (this.player.y> 3000){
           window['laberinto'].Global.fromGameToForest = 2;
-          // this.negro.exists = true;
-          // this.game.add.tween(this.negro).to( { alpha: 1 }, 250, Phaser.Easing.Linear.None, true, 1, 250, true);
-          // var that = this;
-          // setTimeout(function(){ that.game.state.start('forest'); that.negro.exists = false;}, 500); 
           this.game.state.start('forest');        
         }
         if (this.player.y <3000){
-          window['laberinto'].Global.fromGameToForest = 1;
-          // this.negro.exists = true;
-          // this.game.add.tween(this.negro).to( { alpha: 1 }, 250, Phaser.Easing.Linear.None, true, 1, 250, true);
-          // var that = this;
-          // setTimeout(function(){ that.game.state.start('forest'); that.negro.exists = false;}, 500);  
+          window['laberinto'].Global.fromGameToForest = 1; 
           this.game.state.start('forest');
         }
       }
@@ -167,18 +155,7 @@
             this.deku.exists = false;
           }
 
-      x = this.input.position.x;
-      y = this.input.position.y;
-      cx = this.world.centerX;
-      cy = this.world.centerY;
-
       this.moveChar();
-
-
-
-      //FIN UPDATEEEEEEE
-      //EEEEEEEEEEEEEEEE
-      //EEEEEEEEEEEEEEEE
     },
 
     onInputDown: function () {
