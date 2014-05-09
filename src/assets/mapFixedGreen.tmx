@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="51" height="51" tilewidth="120" tileheight="120">
+ <tileset firstgid="1" name="Tilemapdef" tilewidth="120" tileheight="120">
+  <image source="../Documents/Trabajos U-tad/Arte electronico/Meiru/JUEGO/Recursos/Tiles/Tiles hierba/Tilemapdef.png" width="360" height="840"/>
+ </tileset>
+ <tileset firstgid="22" name="IzquierdaGIGANTE" tilewidth="120" tileheight="120">
+  <image source="../Documents/Trabajos U-tad/Arte electronico/Meiru/JUEGO/Entregables Meiru/Mapas base/IzquierdaGIGANTE.png" width="6120" height="6120"/>
+ </tileset>
+ <layer name="Capa de Patrones 1" width="51" height="51">
+  <data encoding="base64" compression="zlib">
+   eJy1WmtPAjEQLIggomD8/z9WSGiyjjOzu3fnhyba6133OftiN8bYk/VyX7vw9wesHTmHZ9V+XIf7+n6uo3gn7qk7Xp7feiXrGJ4dzXtH+MZnuPMK+0w+B3FnvBdpnPvxWXz3/b7e7usS7r6O33QcyDO83y0mH8XLg54znJk0noNMGB1Tv9eR0+H234M85t1znUEeTHd74DXSpHTOeEGaop4ez0+wN2WHsoz0op90dFg9z+69wrNMJqhLJevIz5QHygT3mJ2gzi9wh7Kbikw+h7ZJPMewEmXgMAVlz3CC2RX6nJId6vktOdPFhmi76DuMlxPRq8LUKbv4DpM96tvhgcKGJZiH9p7ZDIsLTr7MNmKc+xi//UnhvuPF+Yvzs/nd0/gr6wu5B+mIvKg8oOK/zl9cLEAZZHjmZIa2qHiJ9DD/ZbjL7mC0Vm2q8j/Km/Hi6KnorUqr06HCFBZXOvRm9Cm7Z3cqTMO8iOVRDuPccvgXcTTLdyoyYrjnciZnbyx+YX6r5NGxsS1XxXcymiq1gYtjCn+z91g8PIl9lrMxGlTNpOooxE2Xq2O+0Fmq3mR1qcrFHutW1Gcnzi/FoCxuYvzFPCryonCiG+fX8IK6Rd1j7oC2iHUl0yerreO3ML4s5aWqe6VLlZdGOhUvlR5IhxdWt7ocT/VBGJZjT0fVj9WarOovWY9E5auZXv87BrGeGLvP1QAqvmBfAnPXJfVixgvGBbQ1xhfmvohPys5U3crsei0vjNaOnXbwQ+HDGt9fa8OMlyy/Q/q3wjGME1m+hM8d1rpatdJT7vLichX0AxdnsLZ1PTlnb1vZmNI9w3/kReWWrM7COn5JfzzjpVNDOV4yn3S1h8rTKzVAtWfsenL7wft2M7Ygzqv4jt/E+ZLai7JnuIM9Y6ej2+B5ULdWXqNTtJdu7zHysgWuov5ZfaHsEGsL1Quo1LEs9mX9bUY781/Wu3G9/tmrznyK2TTmpDhPdLjA+l9rczXFbxXPXB2K+QD6k5pnoi2ouM3+r9hzZp9uVlPJ9ZS/M3mpfFblq9hbnvMBrBcVvRnuVOaZrC5nfe5oYyouM2yvzkKdjSk7U7O7rv07Wbr6V2FXNpf6j4X1PcsJne9jL8fV1w6zVdyu5DGVHNj1oKfdqt8nsHlQ1r9SPQ7WB8nmPKq+wLxmfsPV+9V5UPV5FwvV3yqvYTFP9TnZPEn9/gKfK99Ae4z5rPodhfOvrEemMNqdxfPMb3CGzfrrin6W26yZ83XOK7/BfG3JbzhUz8zNVrq9lmxmtDW+sx63itNuxrNkZvTg5eu5OrMod98P1aZBUg==
+  </data>
+ </layer>
+</map>
