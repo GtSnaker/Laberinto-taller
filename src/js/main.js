@@ -10,6 +10,7 @@ window.onload = function () {
   game.state.add('menu', ns.Menu);
   game.state.add('game', ns.Game);
   game.state.add('forest', ns.Forest);
+  game.state.add('shadow', ns.Shadow);
 
   game.state.start('boot');
 };

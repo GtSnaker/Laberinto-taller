@@ -21,6 +21,7 @@
       this.load.image('portada01', 'assets/Portada01.png');     
       this.load.image('textBox', 'assets/textElements/cajaDeTexto.png');
       this.load.image('unicornio', 'assets/characters/unicornio/unicornioPeta.png');
+      this.load.image('slender', 'assets/slender.png');
       this.load.image('flecha', 'assets/textElements/flecha.png');
       this.load.image('degradado', 'assets/degradado.png');
       this.load.image('antorcha', 'assets/antorcha.png');
@@ -42,6 +43,8 @@
       this.load.image('tiles', 'assets/fixedMap.png');
       this.load.tilemap('mapGreen', 'assets/mapGreen.json', null, Phaser.Tilemap.TILED_JSON);
       this.load.image('tilesGreen', 'assets/tilesetFixedGreen.png');
+      this.load.tilemap('mapBlack', 'assets/mapBlack.json', null, Phaser.Tilemap.TILED_JSON);
+      this.load.image('tilesBlack', 'assets/tilesetFixedBlack.png');
     },
 
     create: function () {

@@ -17,45 +17,67 @@
       this.map = this.game.add.tilemap('map');
       this.map.addTilesetImage('tiles');
       
-      this.map.setCollision(1);
-      this.map.setCollision(2);
-      this.map.setCollision(3);
-      this.map.setCollision(4);
-      this.map.setCollision(6);
-      this.map.setCollision(7);
-      this.map.setCollision(8);
-      this.map.setCollision(9);
-      this.map.setCollision(10);
-      this.map.setCollision(11);
-      this.map.setCollision(12);
-      this.map.setCollision(13);
-      this.map.setCollision(14);
+      // this.map.setCollision(1);
+      // this.map.setCollision(2);
+      // this.map.setCollision(3);
+      // this.map.setCollision(4);
+      // this.map.setCollision(6);
+      // this.map.setCollision(7);
+      // this.map.setCollision(8);
+      // this.map.setCollision(9);
+      // this.map.setCollision(10);
+      // this.map.setCollision(11);
+      // this.map.setCollision(12);
+      // this.map.setCollision(13);
+      // this.map.setCollision(14);
 
       this.layer = this.map.createLayer('Capa de Patrones 1');     
       this.layer.resizeWorld();
 
       this.torch = this.add.sprite(2320, 2620, 'antorcha');
 
-      //this.rock1 = this.add.sprite(2320, 2400, 'piedra');
+      if(window['laberinto'].Global.fromForest) {
+        switch(window['laberinto'].Global.fromForestToGame) {
+          case 1:
+            this.player = this.add.sprite(50, 4053, 'player');
+            this.animationNow = 'stopRigt';
+          break;
 
-      this.slenderPlayer = this.add.sprite(2555, 2620, 'slenderBoy');
-      this.slenderPlayer.anchor.setTo(0.5, 0.5);
-      this.slenderPlayer.scale.set(0.4);
-      this.slenderPlayer.animations.add('walk', [0,1], 1.8, true);
+          case 2:
+            this.player = this.add.sprite(50, 2295, 'player');
+            this.animationNow = 'stopRigt';
+          break;
 
-      switch(window['laberinto'].Global.fromForestToGame) {
-        case 1:
-        this.player = this.add.sprite(50, 4053, 'player');
-        this.animationNow = 'stopRigt';
-        break;
-        case 2:
-        this.player = this.add.sprite(50, 2295, 'player');
-        this.animationNow = 'stopRigt';
-        break;
-        default:
+          default:
+            this.player = this.add.sprite(2380, 2400, 'player');
+            this.animationNow = 'stopDown';
+        }
+      }
+      else if(window['laberinto'].Global.fromShadow) {
+        switch(window['laberinto'].Global.fromShadowToGame) {
+          case 1:
+            this.player = this.add.sprite(6070, 3950, 'player');
+            this.animationNow = 'stopLeft';
+          break;
+
+          case 2:
+            this.player = this.add.sprite(6070, 2154, 'player');
+            this.animationNow = 'stopLeft';
+          break;
+          
+          default:
+            this.player = this.add.sprite(2380, 2400, 'player');
+            this.animationNow = 'stopDown';
+        }
+      }
+      else {
         this.player = this.add.sprite(2380, 2400, 'player');
         this.animationNow = 'stopDown';
       }
+
+      window['laberinto'].Global.fromForest = false;
+      window['laberinto'].Global.fromShadow = false;
+
       
       this.player.anchor.setTo(0.5, 0.5);
 
@@ -75,12 +97,10 @@
       this.input.onDown.add(this.onInputDown, this);
       
       this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
-      this.game.physics.enable(this.slenderPlayer, Phaser.Physics.ARCADE);
       this.game.physics.enable(this.deku, Phaser.Physics.ARCADE);
       this.game.physics.enable(this.torch, Phaser.Physics.ARCADE);
       //this.game.physics.enable(this.rock1, Phaser.Physics.ARCADE);
 
-      this.slenderPlayer.body.immovable = true;
       this.deku.body.immovable = true;
       this.torch.body.immovable = true;
 
@@ -124,7 +144,6 @@
 
 
     update: function () {
-      this.physics.arcade.collide(this.player, this.slenderPlayer);
       this.physics.arcade.collide(this.player, this.torch, function (){ 
         window['laberinto'].Global.torch = true; 
         this.torch.exists = false;
@@ -133,7 +152,6 @@
       this.physics.arcade.collide(this.player, this.layer);
       this.physics.arcade.collide(this.player, this.deku);
 
-      this.slenderPlayer.animations.play('walk');
       this.deku.animations.play('move');
 
       if (this.player.x <20) {
@@ -144,6 +162,17 @@
         if (this.player.y <3000){
           window['laberinto'].Global.fromGameToForest = 1; 
           this.game.state.start('forest');
+        }
+      }
+
+      if (this.player.x > 6100) {
+        if (this.player.y > 3500) {
+          window['laberinto'].Global.fromShadowToGame = 1,
+          this.game.state.start('shadow');
+        }
+        if (this.player.y < 3500) {
+          window['laberinto'].Global.fromShadowToGame = 2,
+          this.game.state.start('shadow');
         }
       }
 

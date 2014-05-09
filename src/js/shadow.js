@@ -1,13 +1,13 @@
 (function() {
   'use strict';
 
-  function Forest() {
+  function Shadow() {
     this.player = null;
     this.map;
     this.layer;
   }
 
-  Forest.prototype = {
+  Shadow.prototype = {
 
     create: function () {
       var x = this.game.width / 2
@@ -15,8 +15,8 @@
 
       this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
-      this.map = this.game.add.tilemap('mapGreen');
-      this.map.addTilesetImage('tilesGreen');
+      this.map = this.game.add.tilemap('mapBlack');
+      this.map.addTilesetImage('tilesBlack');
 
       // this.map.setCollision(1);
       // this.map.setCollision(2);
@@ -37,10 +37,10 @@
       this.layer = this.map.createLayer('Capa de Patrones 1');     
       this.layer.resizeWorld();
 
-      this.unicornioPlayer = this.add.sprite(2555, 2400, 'unicornioPlayer');
-      this.unicornioPlayer.anchor.setTo(0.5, 0.5);
-      this.unicornioPlayer.scale.set(0.4)
-      this.unicornioPlayer.animations.add('walk', [0,1], 1.8, true);
+      this.slenderPlayer = this.add.sprite(2555, 2400, 'slenderBoy');
+      this.slenderPlayer.anchor.setTo(0.5, 0.5);
+      this.slenderPlayer.scale.set(0.4);
+      this.slenderPlayer.animations.add('walk', [0,1], 1.8, true);
 
       this.itemBox = this.add.sprite(40, 570,'itemBox');
       this.itemBox.fixedToCamera = true;
@@ -63,14 +63,14 @@
       this.box.fixedToCamera = true;
       this.box.exists = false;
 
-      switch(window['laberinto'].Global.fromGameToForest) {
-        case 1:
-        this.player = this.add.sprite(6070, 2271, 'player');
-        this.animationNow = 'stopLeft';
-        break;
+      switch(window['laberinto'].Global.fromShadowToGame) {
         case 2:
-        this.player = this.add.sprite(6070, 4068, 'player');
-        this.animationNow = 'stopLeft';
+        this.player = this.add.sprite(50, 2158, 'player');
+        this.animationNow = 'stopRigt';
+        break;
+        case 1:
+        this.player = this.add.sprite(50, 3850, 'player');
+        this.animationNow = 'stopRigt';
         break;
         default: this.player = this.add.sprite(2380, 2400, 'player');
         this.animationNow = 'stopDown';
@@ -90,9 +90,9 @@
       this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
 
       this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
-      this.game.physics.enable(this.unicornioPlayer, Phaser.Physics.ARCADE);
+      this.game.physics.enable(this.slenderPlayer, Phaser.Physics.ARCADE);
 
-      this.unicornioPlayer.body.immovable = true;
+      this.slenderPlayer.body.immovable = true;
 
       this.degradado = this.add.sprite(0,0,'degradado');
       this.degradado.fixedToCamera = true;
@@ -101,14 +101,14 @@
       this.giro180grados = 'El laberinto gira 180º - 2 cuartos de vuelta';
       this.giro270grados = 'El laberinto gira 270º - 3 cuartos de vuelta';
 
-      this.dialogoUno = '¡Hey! ¡Hola chico!\n¿Tú no eres algo pequeño para estar por aqui solo? \n¡No me digas que eres ese niño de la leyenda de la cueva! \n¡Ese que devora caballos y rompe piedras a mordiscos!\n¿Eres tú?';
-      this.respuestasCharUno = '     Si, ¡témeme!\n\n     Mas o menos.\n\n     No sé de quién hablas.';
-      this.dialogoUnicornioUnoUno = "[1] Vendrás en son de paz, ¿no? Bueno, \n¿quieres unas hierbas terapéuticas?\nLe vendrán bien a tu cabeza si te pierdes. \nYo me perdí, y aprendí muchas cosas, tantas, \nque no sabría qué pasaría si todas ellas \nfluyeran por mi cabeza sin unas terapéuticas. \n¿Bueno, quieres o no? Son 3.000dd's la unidad.";
-      this.dialogoUnicornioUnoDos = "[2] Jo, chico. ¡Vaya decepción me he llevado! \n¿Te apetece sentarte aqui, \ny tomarte unas terapéuticas conmigo? \nSon sólo 3.000dd's la unidad.";
-      this.dialogoUnicornioUnoTres = "[3] Menos mal. No sé que habría hecho si \nllega a aparecer ese monstruo por aqui. \nQuizá... le hubiera ofrecido unas terapéuticas.";
-      this.respuestasCharDos = "     ¡¿3.000dd's?! ¿Estás fumao o qué? ¡Anda a pastar!\n\n     No, gracias, no tengo dinero.";
-      this.dialogoUnicornioDosUno = "¿Pero qué? No se puede ir por la vida asi, majo. \nToma esto y lárgate de aqui, \n¡#@¬&¬€! ¡#@€$%&! ¡$&$%!.";
-      this.dialogoSiguiente = "¡Déjame en paz! ¡Largo!";
+      this.dialogoUno = 'Snif... Snif...  \nHo-Hola. Soy Slender Boy. \nMi papá es Slender Man. \nE-Es como yo, pero mu-mucho mas alto. \n¿Lo has visto?';
+      this.respuestasCharUno = '     Si, estaba por ahí.\n\n     No, lo siento.\n\n     No lo recuerdo.';
+      this.dialogoSlenderUnoUno = "[1]¡¿Sí?! ¡¿Está bien?! \n¡¿Dónde lo viste?! \n¡¿Iba persiguiendo a alguien?! \n¡¿Hace cuánto tiempo?!";
+      this.dialogoSlenderUnoDos = "[2]...\n...\nSnif... snif... ¡Qué desgraciado soy! \nAlguien me roba mis dibujos del bosque, \nmi papá me deja solo para ir a buscar a esas malas personas \ny encima me pierdo en esta cueva extraña. \nBuaaaaa...";
+      this.dialogoSlenderUnoTres = "[3]Jo. Pues vaya...";
+      this.respuestasCharDos = "     Tranquilo, tranquilo. Si le veo le aviaré de que estás aqui.\n\n     En algún momento vendrá a buscarte. (...o no.)";
+      this.dialogoSlenderDosUno = "¿En serio? ¡Gracias! \n¿Te puedo llamar amigo? \nPues por ser mi amigo y ayudarme, \nte regalo este Orbe Sombra \nque encontré cuando perdí a papá.";
+      this.dialogoSiguiente = "Recuerda avisarle. Muchas gracias.";
 
       this.hablado = false;
       this.dialogoSiguienteBool = false;
@@ -132,11 +132,11 @@
       this.timeSelector = 0;
       this.timeContinue = 0;
 
-      this.unicornioChar = this.add.sprite(x, y, 'unicornio');
-      this.unicornioChar.x = 707;
-      this.unicornioChar.y = 317;
-      this.unicornioChar.fixedToCamera = true;
-      this.unicornioChar.exists = false;
+      this.slenderChar = this.add.sprite(x, y, 'slender');
+      this.slenderChar.x = 729;
+      this.slenderChar.y = 317;
+      this.slenderChar.fixedToCamera = true;
+      this.slenderChar.exists = false;
 
       this.selector3 = this.game.add.sprite(40, 565, 'flecha');
       this.selector3.scale.set(0.65);
@@ -168,15 +168,15 @@
 
     update: function () {
       this.physics.arcade.collide(this.player, this.layer);
-      this.physics.arcade.collide(this.player, this.unicornioPlayer);
-      this.unicornioPlayer.animations.play('walk');
+      this.physics.arcade.collide(this.player, this.slenderPlayer);
+      this.slenderPlayer.animations.play('walk');
 
       if (this.jugando) {  
         this.moveChar();
         this.changeState();
       }
       else {
-        this.dialogueUnicorn();
+        this.dialogueSlender();
       }
 
       if(this.time.now - this.timeContinue > 1000){
@@ -189,15 +189,15 @@
     },
 
     changeState:function(){
-      if (this.player.x > 6100) {
-        if (this.player.y > 3500) {
-          window['laberinto'].Global.fromForest = true;
-          window['laberinto'].Global.fromForestToGame = 1,
-          this.game.state.start('game');
+      if (this.player.x <20) {
+        if (this.player.y> 3000){
+          window['laberinto'].Global.fromShadow = true;
+          window['laberinto'].Global.fromGameToShadow = 2;
+          this.game.state.start('game');        
         }
-        if (this.player.y < 3500) {
-          window['laberinto'].Global.fromForest = true;
-          window['laberinto'].Global.fromForestToGame = 2,
+        if (this.player.y <3000){
+          window['laberinto'].Global.fromShadow = true;
+          window['laberinto'].Global.fromGameToShadow = 1; 
           this.game.state.start('game');
         }
       }
@@ -376,7 +376,7 @@
     continueTexting:function(){
       if (this.input.keyboard.isDown(Phaser.Keyboard.ENTER))
       {       
-        if ( (this.distance(this.player, this.unicornioPlayer)) < 125){
+        if ( (this.distance(this.player, this.slenderPlayer)) < 125){
           this.timeContinue = this.time.now;
           this.textoTotal = '';
           this.timeAhorita = this.time.now;
@@ -390,7 +390,7 @@
               this.dialogoSiguienteBool = true;
             }
             this.box.exists = true;
-            this.unicornioChar.exists = true;
+            this.slenderChar.exists = true;
           }
           else if(this.primerDialogo) {
             this.primerDialogo = false;
@@ -415,7 +415,7 @@
             this.respuesta3 = false;
             this.jugando = true;
             this.box.exists = false;
-            this.unicornioChar.exists = false;
+            this.slenderChar.exists = false;
             this.hablado = true;
             this.dialogoText.text = '';
           }
@@ -423,7 +423,7 @@
             this.dialogoSiguienteBool = false;
             this.jugando = true;
             this.box.exists = false;
-            this.unicornioChar.exists = false;
+            this.slenderChar.exists = false;
             this.dialogoText.text = '';
           }
           if (this.selector1.exists){
@@ -442,11 +442,11 @@
       }
     },
 
-    dialogueUnicorn:function(){
+    dialogueSlender:function(){
         this.stateText.anchor.setTo(0.5, 0.5);
         this.stateText.visible = false;
           if(this.primerDialogo){
-            this.textizador(this.dialogoUno, 6000);
+            this.textizador(this.dialogoUno, 3000);
             this.dialogoText.text = this.textoTotal;
           }
 
@@ -458,13 +458,14 @@
 
           else if(this.tercerDialogo){
             if(this.respuesta1){
-              this.textizador(this.dialogoUnicornioUnoUno, 2500);
+              this.textizador(this.dialogoSlenderUnoUno, 2500);
             }
             else if(this.respuesta2){
-              this.textizador(this.dialogoUnicornioUnoDos, 2500);
+              this.textizador(this.dialogoSlenderUnoDos, 4000
+                );
             }
             else if(this.respuesta3){
-              this.textizador(this.dialogoUnicornioUnoTres, 2500);
+              this.textizador(this.dialogoSlenderUnoTres, 1000);
             }
             this.dialogoText.text = this.textoTotal;
           }
@@ -479,7 +480,7 @@
           } 
 
           else if(this.quintoDialogo){
-              this.textizador(this.dialogoUnicornioDosUno, 2000);
+              this.textizador(this.dialogoSlenderDosUno, 2500);
               this.dialogoText.text = this.textoTotal;    
           }
           else if(this.dialogoSiguienteBool){
@@ -497,6 +498,6 @@
   };
 
   window['laberinto'] = window['laberinto'] || {};
-  window['laberinto'].Forest = Forest;
+  window['laberinto'].Shadow = Shadow;
 
 }());
