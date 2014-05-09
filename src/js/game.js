@@ -14,8 +14,8 @@
         , y = this.game.height / 2;
 
       this.game.physics.startSystem(Phaser.Physics.ARCADE);
-      this.map = this.game.add.tilemap('map');
-      this.map.addTilesetImage('tiles');
+      this.map = this.game.add.tilemap('mapYellow');
+      this.map.addTilesetImage('tilesYellow');
       
       // this.map.setCollision(1);
       // this.map.setCollision(2);

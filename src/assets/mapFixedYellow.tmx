@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="51" height="51" tilewidth="120" tileheight="120">
+ <tileset firstgid="1" name="AbajoGIGANTE" tilewidth="120" tileheight="120">
+  <image source="../../../../Downloads/Mapa electr ABAJO/tilemapYellow.png" width="360" height="601"/>
+ </tileset>
+ <tileset firstgid="16" name="Tilemap electricidad" tilewidth="120" tileheight="120">
+  <image source="../../../../Downloads/Mapa electr ABAJO/tilemapYellow.png" width="360" height="601"/>
+ </tileset>
+ <layer name="Capa de Patrones 1" width="51" height="51">
+  <data encoding="base64" compression="zlib">
+   eJy1WgFOwzAM7BPGxkYH4//fpJMWyTrdnS9rQYoEaVrbiX0+O/wsy/JjxmkbH9v43cbnazxec+ey7r9+Lo1cpS+uO4ENOOq36zfUOBcd1Xr8FpP/IO8MnavtVzH/HPdtfG3jG+avZK2zXenovnUncp3Oz/Vrmb+B7leYH2Mlc3UoHer+qG9V2RfzDtoydB1nfBbPmW8qf2F7UnVZF+37KJvpoXR9vObq39Ufqo/UdYlP1fVMF7UXnS04h/GS+L47c+ZTnS6djPp7xZz6HOPwOYe+X32D+e914dhT1z/KvIpVFyNsj/G5w4TOZ52cbl75iJPHsMjZgj5ec0xiizoLPFOmN+bl7ixRh9THU1uSM+r0SnMIxlDNJYiZK8yntrBcswa2uBylcki1n3Gugc1OHup2IzJd3CFHQl7i8pWzJY1PlKf0UPwMfT/BfqaTilP1TYbhMzIT33c+xXKCsyXZH/Rjlmvw946fDT9MubXSl+Gc4qVDLsuDXU5OhqsnHP65mGC5t9rAZCY4nI7ujJUtjKN2sc1kJjicDtRXcVsWLwor3b45mcjHZkaHsx2OoS1qTzvOcYSPMf2UPsOPXC5Te8ryh+JKR9misAP7EKqHsSduj7ZFDbafLl6wpnJ+hxhylC1JXYfvKp7UxbDakyPjpfqQq9WwPpnh3W5P9trCOGuNyY5TOX7T+RxiyF5b0m+puq+zhcnp+PwRtrBaKqmhVA2M/pjmundt6Xpys/XsO9j6bi3i/HyvLYyrM/xldfSRtiQcTHH+Oo95tOuRHOljMxws6V8pnE34Xsfp8HwVV1d97w5rWZ+ls4XhisI2vL9hZ6/6Gu553TeVG1wv29WpXW2L55j0NXAN4xvsDizpzanYdHFQz7ziS9LXUGvq2bL46O5uXLyo+ypmc7IPCcYPe1x8OBx39dHemsFhCesDKHxLbZnlLwyz0N9UD9vFPHJkF2eqbkSOwXi5i3Fcx7DR4dJsHnLn7vKy4q1Od9Ur77AaeWeVV3OA4vguJhw/cncESU5Ra1JuibiO+JdycHZv6ziWkst6Lim3xP1/l7cmWOXeUzkx6QOrHoLqSSXYzXi26pdizmE+lfq3u8tn+NXhnePUSS3KbGF7sqdXkdbinX6OW7v4SPIhDoxxPDd8jvGm7utdzkWOzc5X/R9TUpfM1EgYA+xOXcVzejeT1mJM19k+tesfJPGs/KPKVffUna6zA+skVTel9zUzevwBHNPZBw==
+  </data>
+ </layer>
+</map>
