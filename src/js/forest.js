@@ -171,22 +171,9 @@
       this.physics.arcade.collide(this.player, this.unicornioPlayer);
       this.unicornioPlayer.animations.play('walk');
 
-
-      if (this.player.x > 6100) {
-        if (this.player.y > 3500) {
-          window['laberinto'].Global.fromForestToGame = 1,
-          this.game.state.start('game');
-        }
-        if (this.player.y < 3500) {
-          window['laberinto'].Global.fromForestToGame = 2,
-          this.game.state.start('game');
-        }
-      }
-
-
-
       if (this.jugando) {  
         this.moveChar();
+        this.changeState();
       }
       else {
         this.dialogueUnicorn();
@@ -199,6 +186,19 @@
 
     onDown: function () {
       
+    },
+
+    changeState:function(){
+      if (this.player.x > 6100) {
+        if (this.player.y > 3500) {
+          window['laberinto'].Global.fromForestToGame = 1,
+          this.game.state.start('game');
+        }
+        if (this.player.y < 3500) {
+          window['laberinto'].Global.fromForestToGame = 2,
+          this.game.state.start('game');
+        }
+      }
     },
 
     moveChar:function(){
