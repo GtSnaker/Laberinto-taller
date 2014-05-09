@@ -20,7 +20,7 @@
  "tilesets":[
         {
          "firstgid":1,
-         "image":"tilesetYellow.png",
+         "image":"tilemapYellow.png",
          "imageheight":601,
          "imagewidth":360,
          "margin":0,
@@ -35,7 +35,7 @@
         }, 
         {
          "firstgid":16,
-         "image":"tilesetYellow.png",
+         "image":"tilemapYellow.png",
          "imageheight":601,
          "imagewidth":360,
          "margin":0,

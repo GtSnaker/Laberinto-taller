@@ -29,12 +29,14 @@
       this.load.image('itemBox', 'assets/cajaItems.png');
       this.load.image('orbBox', 'assets/cajaOrbes.png');
       this.load.image('negro', 'assets/negro.png');
+      this.load.image('pcBig', 'assets/pcChar.png');
 
       this.load.spritesheet('player', 'assets/jimbo.png', 39.5, 52.7);
       this.load.spritesheet('unicornioPlayer', 'assets/unicornio.png', 295, 446);
       this.load.spritesheet('slenderBoy', 'assets/slenderBoy.png', 339, 324);
       this.load.spritesheet('deku', 'assets/deku.png', 28, 38);
       this.load.spritesheet('play', 'assets/botones.png', 366, 62);
+      this.load.spritesheet('pc', 'assets/pc.png', 271, 257);
 
       this.game.load.audio('music1', ['assets/sound/music1.mp3']);
       this.game.load.audio('music2', ['assets/sound/music2.mp3']);

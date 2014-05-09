@@ -19,7 +19,7 @@
       this.game.add.tween(this.portada00).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true, 1, 1000, true);
       this.timeFading = this.time.now;
 
-      this.buttonPlay = this.add.button(0, 600, 'play', function() {this.game.state.start('game');} , this, 1, 0);
+      this.buttonPlay = this.add.button(0, 600, 'play', function() {this.game.state.start('electricity');} , this, 1, 0);
 
       this.degradado = this.add.sprite(0,0,'degradado');
 

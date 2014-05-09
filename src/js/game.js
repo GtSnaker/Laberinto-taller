@@ -14,8 +14,8 @@
         , y = this.game.height / 2;
 
       this.game.physics.startSystem(Phaser.Physics.ARCADE);
-      this.map = this.game.add.tilemap('mapYellow');
-      this.map.addTilesetImage('tilesYellow');
+      this.map = this.game.add.tilemap('map');
+      this.map.addTilesetImage('tiles');
       
       // this.map.setCollision(1);
       // this.map.setCollision(2);
@@ -47,10 +47,6 @@
             this.player = this.add.sprite(50, 2295, 'player');
             this.animationNow = 'stopRigt';
           break;
-
-          default:
-            this.player = this.add.sprite(2380, 2400, 'player');
-            this.animationNow = 'stopDown';
         }
       }
       else if(window['laberinto'].Global.fromShadow) {
@@ -64,10 +60,19 @@
             this.player = this.add.sprite(6070, 2154, 'player');
             this.animationNow = 'stopLeft';
           break;
-          
-          default:
-            this.player = this.add.sprite(2380, 2400, 'player');
-            this.animationNow = 'stopDown';
+        }
+      }
+      else if(window['laberinto'].Global.fromElectricity) {
+        switch(window['laberinto'].Global.fromElectricityToGame) {
+          case 1:
+            this.player = this.add.sprite(1438, 6063, 'player');
+            this.animationNow = 'stopUp';
+          break;
+
+          case 2:
+            this.player = this.add.sprite(5156, 6063, 'player');
+            this.animationNow = 'stopUp';
+          break;
         }
       }
       else {
@@ -77,8 +82,8 @@
 
       window['laberinto'].Global.fromForest = false;
       window['laberinto'].Global.fromShadow = false;
-
-      
+      window['laberinto'].Global.fromElectricity = false;
+    
       this.player.anchor.setTo(0.5, 0.5);
 
       this.player.animations.add('up',    [4, 8,  12, 16], 8, true);
@@ -154,6 +159,11 @@
 
       this.deku.animations.play('move');
 
+      if(this.input.keyboard.isDown(Phaser.Keyboard.T)) {
+        console.log(this.player.x);
+        console.log(this.player.y);
+      }
+
       if (this.player.x <20) {
         if (this.player.y> 3000){
           window['laberinto'].Global.fromGameToForest = 2;
@@ -173,6 +183,17 @@
         if (this.player.y < 3500) {
           window['laberinto'].Global.fromShadowToGame = 2,
           this.game.state.start('shadow');
+        }
+      }
+
+      if (this.player.y > 6065) {
+        if (this.player.x > 4000) {
+          window['laberinto'].Global.fromGameToElectricity = 1,
+          this.game.state.start('electricity');
+        }
+        if (this.player.x < 4000) {
+          window['laberinto'].Global.fromGameToElectricity = 2,
+          this.game.state.start('electricity');
         }
       }
 

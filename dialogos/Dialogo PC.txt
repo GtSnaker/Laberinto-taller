@@ -1,0 +1,56 @@
+PC
+
+Diálogo 1:
+	
+	Iniciando Internet Exploder...
+	
+	Iniciando...
+	
+	...
+
+
+Respuestas al diálogo 1:
+
+	[1] Eeeeh...
+	[2] ¿Qué es esto?
+	[3] ¿Pero qué...?
+
+Consecuencias de la respuesta:
+	
+	[1] El laberinto gira 180º - 2 cuartos de vuelta
+	[2] El laberinto dira 90º  - 1 cuartos de vuelta
+	[3] El laberinto gira 270º - 3 cuartos de vuelta
+
+
+Diálogo 2 [según la respuesta de antes]:
+
+	[1] ...
+
+	[2] ...
+
+	[3] ...
+
+Respuestas al diálogo 2:
+
+	[a] Esperemos un poco...
+	[b] Yo me largo.
+
+Consecuencias de la respuesta 2:
+
+	[a] El laberinto gira en el sentido contrario de las agujas del reloj.
+	[b] El laberinto gira en el sentido de las agujas del reloj
+	
+
+Dialogo final:
+
+	¡Bienvenido chico! ¿Quién eres?
+
+Dialogos siguientes: 
+	Iniciando Interneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee..... Fatal Error.
+	
+
+
+
+
+
+
