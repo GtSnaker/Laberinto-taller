@@ -89,7 +89,7 @@
       this.player.animations.add('up',    [4, 8,  12, 16], 8, true);
       this.player.animations.add('down',  [5, 9,  13, 17], 8, true);
       this.player.animations.add('right', [6, 10, 14, 18], 8, true);
-      this.player.animations.add('left',  [7, 11, 15, 19], 10, true);
+      this.player.animations.add('left',  [7, 11, 15, 19], 8, true);
       this.player.animations.add('stopUp',[0], 8, true);
       this.player.animations.add('stopDown',[1], 8, true);
       this.player.animations.add('stopRigt',[2], 8, true);
