@@ -37,6 +37,7 @@
       this.load.spritesheet('deku', 'assets/deku.png', 28, 38);
       this.load.spritesheet('play', 'assets/botones.png', 366, 62);
       this.load.spritesheet('pc', 'assets/pc.png', 271, 257);
+      this.load.spritesheet('torch', 'assets/torch.png', 55.4, 75);
 
       this.game.load.audio('music1', ['assets/sound/music1.mp3']);
       this.game.load.audio('music2', ['assets/sound/music2.mp3']);

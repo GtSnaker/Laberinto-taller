@@ -48,7 +48,8 @@
       this.orbBox = this.add.sprite(560, 570,'orbBox');
       this.orbBox.fixedToCamera = true;
 
-      this.torchItem = this.add.sprite(50, 607, 'antorcha');
+      this.torchItem = this.add.sprite(50, 607, 'torch');
+      this.torchItem.scale.set(0.7);
       this.torchItem.fixedToCamera = true;
       if (window['laberinto'].Global.torch){
         this.torchItem.exists = true;
@@ -278,7 +279,7 @@
       if ((this.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) && (this.input.keyboard.isDown(Phaser.Keyboard.LEFT)))
         {
           this.player.body.velocity.x = 0;
-          this.player.animations.play(this.animationNow);
+          this.player.animations.play('stopDown');
         }
       if (!(this.input.keyboard.isDown(Phaser.Keyboard.LEFT)) && !(this.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) && !(this.input.keyboard.isDown(Phaser.Keyboard.UP)) && !(this.input.keyboard.isDown(Phaser.Keyboard.DOWN)) ) {
         this.player.animations.play(this.animationNow);
