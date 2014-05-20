@@ -19,18 +19,18 @@
       this.map.addTilesetImage('tilesGreen');
 
       //this.map.setCollision(1);
-       //this.map.setCollision(2);
-       //this.map.setCollision(3);
-       // this.map.setCollision(4);
-      //  this.map.setCollision(7);
-      //  this.map.setCollision(8);
-      //  this.map.setCollision(6);
-      //  this.map.setCollision(9);
-      // this.map.setCollision(10);
-      //  this.map.setCollision(11);
-      //  this.map.setCollision(12);
-      //  this.map.setCollision(13);
-      //  this.map.setCollision(14);
+      //this.map.setCollision(2);
+      //this.map.setCollision(3);
+      //this.map.setCollision(4);
+      //this.map.setCollision(7);
+      //this.map.setCollision(8);
+      //this.map.setCollision(6);
+      //this.map.setCollision(9);
+      //this.map.setCollision(10);
+      //this.map.setCollision(11);
+      //this.map.setCollision(12);
+      //this.map.setCollision(13);
+      //this.map.setCollision(14);
 
       this.jugando = true;
 
@@ -152,7 +152,7 @@
       this.selector1.fixedToCamera = true;
       this.selector1.exists = false;
 
-      this.respuesta1 = false; 
+      this.respuesta1 = false;
       this.respuesta2 = false;
       this.respuesta3 = false;
 
@@ -172,17 +172,25 @@
 
       this.createVallas();
       this.input.onDown.add(this.onDown, this);
+
+      //Espadita pruebas
+      
+      this.sword = this.add.sprite(this.player.x, this.player.y, 'sword');
+      this.sword.alpha = 0;
+      this.game.physics.enable(this.sword,Phaser.Physics.ARCADE);
     },
 
     update: function () {
       this.physics.arcade.collide(this.vallas, this.player, this.EvaluateKillValla, null, this);
       this.physics.arcade.collide(this.player, this.layer);
       this.physics.arcade.collide(this.player, this.unicornioPlayer);
+      this.physics.arcade.overlap(this.sword, this.vallas, this.EvaluateKillValla, null, this);
       this.unicornioPlayer.animations.play('walk');
 
       if (this.jugando) {
         this.moveChar();
         this.changeState();
+        this.updateSwordPosition();
       }
       else {
         this.dialogueUnicorn();
@@ -195,6 +203,27 @@
 
     onDown: function () {
       
+    },
+    updateSwordPosition: function () {
+      switch (this.animationNow){
+        case 'stopUp':
+          this.sword.x = this.player.x -15;
+          this.sword.y = this.player.y -42;
+          break;
+        case 'stopDown':
+          this.sword.x = this.player.x -15;
+          this.sword.y = this.player.y +20;
+          break;
+        case 'stopRigt':
+          this.sword.x = this.player.x +10;
+          this.sword.y = this.player.y -20;
+          break;
+        case 'stopLeft':
+          this.sword.x = this.player.x -30;
+          this.sword.y = this.player.y -20;
+          break;
+
+      }
     },
 
     changeState:function(){
@@ -247,7 +276,7 @@
       valla11.body.immovable = true;
     },
 
-    moveChar:function(){
+    moveChar: function(){
       this.player.body.collideWorldBounds = true;
       this.player.body.velocity.x = 0;
       this.player.body.velocity.y = 0;
@@ -270,6 +299,7 @@
       }  
       else if (this.input.keyboard.isDown(Phaser.Keyboard.LEFT))
       {
+          this.swordPosition=4;
           this.player.animations.play('left');
           this.animationNow = 'stopLeft';
           this.player.body.velocity.x = -600;
@@ -292,18 +322,21 @@
       }  
       else if (this.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
         {
+          this.swordPosition = 2;
           this.player.animations.play('right');
           this.animationNow = 'stopRigt';
           this.player.body.velocity.x = 600;
         }
       if (this.input.keyboard.isDown(Phaser.Keyboard.UP))
         {
+          this.swordPosition = 1;
           this.player.animations.play('up');
           this.animationNow = 'stopUp';
           this.player.body.velocity.y= -600;
         }
       if (this.input.keyboard.isDown(Phaser.Keyboard.DOWN))
         {
+          this.swordPosition = 3;
           this.player.animations.play('down');
           this.animationNow = 'stopDown';
           this.player.body.velocity.y = 600;
@@ -328,7 +361,7 @@
       }
     },
     EvaluateKillValla: function(_player, _valla){
-      if(this.input.keyboard.isDown(Phaser.Keyboard.E)) {
+      if(this.input.keyboard.isDown(Phaser.Keyboard.E) && this.torchItem.exists ) {
         //Animacion de la valla.
         _valla.kill();
 
