@@ -52,6 +52,8 @@
       this.load.image('tilesBlack', 'assets/tilesetFixedBlack.png');
       this.load.tilemap('mapYellow', 'assets/mapFixedYellow.json', null, Phaser.Tilemap.TILED_JSON);
       this.load.image('tilesYellow', 'assets/tilesetFixedYellow.png');
+      this.load.tilemap('mapRed', 'assets/tilemapRed.json', null, Phaser.Tilemap.TILED_JSON);
+      this.load.image('tilesRed', 'assets/tilesetRed.png');
     },
 
     create: function () {
