@@ -33,6 +33,7 @@
       this.load.image('horizontalFence', 'assets/vallaHorizontal.png');
       this.load.image('verticalFence', 'assets/vallaVertical.png');
       this.load.image('sword', 'assets/sword.png');
+      this.load.image('diabloChar', 'assets/diabloChar.png');
 
       this.load.spritesheet('player', 'assets/jimbo.png', 39.5, 52.7);
       this.load.spritesheet('unicornioPlayer', 'assets/unicornio.png', 295, 446);
@@ -41,6 +42,7 @@
       this.load.spritesheet('play', 'assets/botones.png', 366, 62);
       this.load.spritesheet('pc', 'assets/pc.png', 271, 257);
       this.load.spritesheet('torch', 'assets/torch.png', 55.4, 75);
+      this.load.spritesheet('diablo', 'assets/diablo.png', 419, 459);
 
       this.game.load.audio('music1', ['assets/sound/music1.mp3']);
       this.game.load.audio('music2', ['assets/sound/music2.mp3']);

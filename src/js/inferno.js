@@ -37,10 +37,10 @@
       this.layer = this.map.createLayer('Capa de Patrones 1');     
       this.layer.resizeWorld();
 
-      this.slenderPlayer = this.add.sprite(2555, 2400, 'slenderBoy');
-      this.slenderPlayer.anchor.setTo(0.5, 0.5);
-      this.slenderPlayer.scale.set(0.4);
-      this.slenderPlayer.animations.add('walk', [0,1], 1.8, true);
+      this.diabloPlayer = this.add.sprite(2555, 2400, 'diablo');
+      this.diabloPlayer.anchor.setTo(0.5, 0.5);
+      this.diabloPlayer.scale.set(0.4);
+      this.diabloPlayer.animations.add('walk', [0,1], 1.8, true);
 
       this.itemBox = this.add.sprite(40, 570,'itemBox');
       this.itemBox.fixedToCamera = true;
@@ -66,12 +66,12 @@
 
       switch(window['laberinto'].Global.fromInfernoToGame) {
         case 2:
-        this.player = this.add.sprite(50, 2158, 'player');
-        this.animationNow = 'stopRigt';
+        this.player = this.add.sprite(1202, 6050, 'player');
+        this.animationNow = 'stopUp';
         break;
         case 1:
-        this.player = this.add.sprite(50, 3850, 'player');
-        this.animationNow = 'stopRigt';
+        this.player = this.add.sprite(4920, 6050, 'player');
+        this.animationNow = 'stopUp';
         break;
         default: this.player = this.add.sprite(2380, 2400, 'player');
         this.animationNow = 'stopDown';
@@ -91,9 +91,9 @@
       this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
 
       this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
-      this.game.physics.enable(this.slenderPlayer, Phaser.Physics.ARCADE);
+      this.game.physics.enable(this.diabloPlayer, Phaser.Physics.ARCADE);
 
-      this.slenderPlayer.body.immovable = true;
+      this.diabloPlayer.body.immovable = true;
 
       this.degradado = this.add.sprite(0,0,'degradado');
       this.degradado.fixedToCamera = true;
@@ -102,14 +102,14 @@
       this.giro180grados = 'El laberinto gira 180º - 2 cuartos de vuelta';
       this.giro270grados = 'El laberinto gira 270º - 3 cuartos de vuelta';
 
-      this.dialogoUno = 'Snif... Snif...  \nHo-Hola. Soy Slender Boy. \nMi papá es Slender Man. \nE-Es como yo, pero mu-mucho mas alto. \n¿Lo has visto?';
-      this.respuestasCharUno = '     Si, estaba por ahí.\n\n     No, lo siento.\n\n     No lo recuerdo.';
-      this.dialogoSlenderUnoUno = "[1]¡¿Sí?! ¡¿Está bien?! \n¡¿Dónde lo viste?! \n¡¿Iba persiguiendo a alguien?! \n¡¿Hace cuánto tiempo?!";
-      this.dialogoSlenderUnoDos = "[2]...\n...\nSnif... snif... ¡Qué desgraciado soy! \nAlguien me roba mis dibujos del bosque, \nmi papá me deja solo para ir a buscar a esas malas personas \ny encima me pierdo en esta cueva extraña. \nBuaaaaa...";
-      this.dialogoSlenderUnoTres = "[3]Jo. Pues vaya...";
-      this.respuestasCharDos = "     Tranquilo, tranquilo. Si le veo le aviaré de que estás aqui.\n\n     En algún momento vendrá a buscarte. (...o no.)";
-      this.dialogoSlenderDosUno = "¿En serio? ¡Gracias! \n¿Te puedo llamar amigo? \nPues por ser mi amigo y ayudarme, \nte regalo este Orbe Sombra \nque encontré cuando perdí a papá.";
-      this.dialogoSiguiente = "Recuerda avisarle. Muchas gracias.";
+      this.dialogoUno = '¿Umh? ¿Y tú quién eres? Yo soy rey y señor de \nesta caverna, el más temido entre los Diablos Escarlata. \nCon un rugido hago que se estremezcan continentes. \nHasta la muerte me teme, tanto que no se atreve \na acercarse para llevarme con ella, \npor eso llevo mas de 1.000 años vivo. \n¿Qué has venido a hacer aqui, mocoso?';
+      this.respuestasCharUno = '     Pueees...\n\n     ...\n\n     ¿Esa pinta de toro es por tu padre o por tu madre?';
+      this.dialogoDiabloUnoUno = "[1] Ya veo. Entonces lárgate de aqui cuanto antes.";
+      this.dialogoDiabloUnoDos = "[2] Te intimido, ¿eh? Es normal. \nPor eso nadie se me acerca...\n\n...\n\n¿pero cómo podría mantener el respeto \nsi cambio la expresión?";
+      this.dialogoDiabloUnoTres = "[3] ¡GRRRAAAAAAAAHGR! \n¡FUERA DE MI VISTA! ¡YAAAA!";
+      this.respuestasCharDos = "     ¡JAJAJAJA!\n\n     Tú dame algo a cambio y lo hablamos.";
+      this.dialogoDiabloDosUno = "¡GRR...! \nMis principios no me permiten hacer daño \na un crío (si tiene mas de 2 años...). \n¿Te vas si te doy esta piruleta? ¿No? \n¿Y esta gorra de los Diablos Escarlata? ¿Tampoco? \n¿Y si te regalo este Orbe Ígneo \nque estaba por ahi tirado?";
+      this.dialogoSiguiente = "Ya te dí el orbe, ahora ¡lárgate!";
 
       this.hablado = false;
       this.dialogoSiguienteBool = false;
@@ -133,11 +133,12 @@
       this.timeSelector = 0;
       this.timeContinue = 0;
 
-      this.slenderChar = this.add.sprite(x, y, 'slender');
-      this.slenderChar.x = 729;
-      this.slenderChar.y = 317;
-      this.slenderChar.fixedToCamera = true;
-      this.slenderChar.exists = false;
+      this.diabloChar = this.add.sprite(x, y, 'diabloChar');
+      this.diabloChar.scale.set(0.8);
+      this.diabloChar.x = 641;
+      this.diabloChar.y = 283;
+      this.diabloChar.fixedToCamera = true;
+      this.diabloChar.exists = false;
 
       this.selector3 = this.game.add.sprite(40, 565, 'flecha');
       this.selector3.scale.set(0.65);
@@ -169,15 +170,21 @@
 
     update: function () {
       this.physics.arcade.collide(this.player, this.layer);
-      this.physics.arcade.collide(this.player, this.slenderPlayer);
-      this.slenderPlayer.animations.play('walk');
+      this.physics.arcade.collide(this.player, this.diabloPlayer);
+      this.diabloPlayer.animations.play('walk');
+
+
+      if(this.input.keyboard.isDown(Phaser.Keyboard.T)) {
+        console.log(this.player.x);
+        console.log(this.player.y);
+      }
 
       if (this.jugando) {  
         this.moveChar();
         this.changeState();
       }
       else {
-        this.dialogueSlender();
+        this.dialogueDiablo();
       }
 
       if(this.time.now - this.timeContinue > 1000){
@@ -190,15 +197,15 @@
     },
 
     changeState:function(){
-      if (this.player.x <20) {
-        if (this.player.y> 3000){
+      if (this.player.y > 6070) {
+        if (this.player.x < 3500){
           window['laberinto'].Global.fromInferno = true;
-          window['laberinto'].Global.fromGameToInferno = 2;
+          window['laberinto'].Global.fromInfernoToGame = 2;
           this.game.state.start('game');        
         }
-        if (this.player.y <3000){
+        if (this.player.x > 3500){
           window['laberinto'].Global.fromInferno = true;
-          window['laberinto'].Global.fromGameToInferno = 1; 
+          window['laberinto'].Global.fromInfernoToGame = 1; 
           this.game.state.start('game');
         }
       }
@@ -377,7 +384,7 @@
     continueTexting:function(){
       if (this.input.keyboard.isDown(Phaser.Keyboard.ENTER))
       {       
-        if ( (this.distance(this.player, this.slenderPlayer)) < 125){
+        if ( (this.distance(this.player, this.diabloPlayer)) < 125){
           this.timeContinue = this.time.now;
           this.textoTotal = '';
           this.timeAhorita = this.time.now;
@@ -391,7 +398,7 @@
               this.dialogoSiguienteBool = true;
             }
             this.box.exists = true;
-            this.slenderChar.exists = true;
+            this.diabloChar.exists = true;
           }
           else if(this.primerDialogo) {
             this.primerDialogo = false;
@@ -416,7 +423,7 @@
             this.respuesta3 = false;
             this.jugando = true;
             this.box.exists = false;
-            this.slenderChar.exists = false;
+            this.diabloChar.exists = false;
             this.hablado = true;
             this.dialogoText.text = '';
           }
@@ -424,7 +431,7 @@
             this.dialogoSiguienteBool = false;
             this.jugando = true;
             this.box.exists = false;
-            this.slenderChar.exists = false;
+            this.diabloChar.exists = false;
             this.dialogoText.text = '';
           }
           if (this.selector1.exists){
@@ -443,7 +450,7 @@
       }
     },
 
-    dialogueSlender:function(){
+    dialogueDiablo:function(){
         this.stateText.anchor.setTo(0.5, 0.5);
         this.stateText.visible = false;
           if(this.primerDialogo){
@@ -459,14 +466,14 @@
 
           else if(this.tercerDialogo){
             if(this.respuesta1){
-              this.textizador(this.dialogoSlenderUnoUno, 2500);
+              this.textizador(this.dialogoDiabloUnoUno, 2500);
             }
             else if(this.respuesta2){
-              this.textizador(this.dialogoSlenderUnoDos, 4000
+              this.textizador(this.dialogoDiabloUnoDos, 4000
                 );
             }
             else if(this.respuesta3){
-              this.textizador(this.dialogoSlenderUnoTres, 1000);
+              this.textizador(this.dialogoDiabloUnoTres, 1000);
             }
             this.dialogoText.text = this.textoTotal;
           }
@@ -481,7 +488,7 @@
           } 
 
           else if(this.quintoDialogo){
-              this.textizador(this.dialogoSlenderDosUno, 2500);
+              this.textizador(this.dialogoDiabloDosUno, 2500);
               this.dialogoText.text = this.textoTotal;    
           }
           else if(this.dialogoSiguienteBool){
