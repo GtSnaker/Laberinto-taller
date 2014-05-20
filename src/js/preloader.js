@@ -18,7 +18,7 @@
       this.load.bitmapFont('minecraftia', 'assets/minecraftia.png', 'assets/minecraftia.xml');
 
       this.load.image('portada00', 'assets/Portada00.png');
-      this.load.image('portada01', 'assets/Portada01.png');     
+      this.load.image('portada01', 'assets/Portada01.png');    
       this.load.image('textBox', 'assets/textElements/cajaDeTexto.png');
       this.load.image('unicornio', 'assets/characters/unicornio/unicornioPeta.png');
       this.load.image('slender', 'assets/slender.png');

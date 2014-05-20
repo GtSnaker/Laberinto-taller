@@ -18,7 +18,7 @@
       this.map = this.game.add.tilemap('mapGreen');
       this.map.addTilesetImage('tilesGreen');
 
-     //this.map.setCollision(1);
+      //this.map.setCollision(1);
       //this.map.setCollision(2);
       //this.map.setCollision(3);
       //this.map.setCollision(4);
@@ -34,19 +34,19 @@
 
       this.jugando = true;
 
-      this.layer = this.map.createLayer('Capa de Patrones 1');     
+      this.layer = this.map.createLayer('Capa de Patrones 1');
       this.layer.resizeWorld();
 
       this.unicornioPlayer = this.add.sprite(2555, 2400, 'unicornioPlayer');
       this.unicornioPlayer.anchor.setTo(0.5, 0.5);
-      this.unicornioPlayer.scale.set(0.4)
+      this.unicornioPlayer.scale.set(0.4);
       this.unicornioPlayer.animations.add('walk', [0,1], 1.8, true);
 
             //cereando grupo vallas
       this.vallas = this.add.group();
       this.vallas.enableBody = true;
       this.game.physics.enable(this.vallas, Phaser.Physics.ARCADE);
-      this.createVallas();  
+      this.createVallas();
 
       this.itemBox = this.add.sprite(40, 570,'itemBox');
       this.itemBox.fixedToCamera = true;
@@ -298,7 +298,7 @@
         this.player.animations.play('up');
         this.animationNow = 'stopUp';
         this.player.body.velocity.y = -600;
-      }  
+      }
       else if (this.input.keyboard.isDown(Phaser.Keyboard.LEFT))
       {
           this.swordPosition=4;
@@ -321,7 +321,7 @@
         this.player.animations.play('up');
         this.animationNow = 'stopUp';
         this.player.body.velocity.y = -600;
-      }  
+      }
       else if (this.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
         {
           this.swordPosition = 2;
@@ -466,7 +466,7 @@
     //AVANZA EN LAS CONVERSACIONES DEL TEXTO
     continueTexting:function(){
       if (this.input.keyboard.isDown(Phaser.Keyboard.ENTER))
-      {       
+      {
         if ( (this.distance(this.player, this.unicornioPlayer)) < 125){
           this.timeContinue = this.time.now;
           this.textoTotal = '';
@@ -521,7 +521,7 @@
             this.selector1.exists = false;
             this.respuesta1 = true;
           }
-          else if (this.selector2.exists){ 
+          else if (this.selector2.exists){
             this.selector2.exists = false;
             this.respuesta2 = true;
           }
@@ -567,11 +567,11 @@
             this.textizador(this.respuestasCharDos, 1500);
             this.dialogoText.text = this.textoTotal;
             this.selection2();
-          } 
+          }
 
           else if(this.quintoDialogo){
               this.textizador(this.dialogoUnicornioDosUno, 2000);
-              this.dialogoText.text = this.textoTotal;    
+              this.dialogoText.text = this.textoTotal;
           }
           else if(this.dialogoSiguienteBool){
               this.textizador(this.dialogoSiguiente, 1000);
