@@ -18,7 +18,7 @@
       this.map = this.game.add.tilemap('mapGreen');
       this.map.addTilesetImage('tilesGreen');
 
-      //this.map.setCollision(1);
+     //this.map.setCollision(1);
       //this.map.setCollision(2);
       //this.map.setCollision(3);
       //this.map.setCollision(4);
@@ -41,6 +41,12 @@
       this.unicornioPlayer.anchor.setTo(0.5, 0.5);
       this.unicornioPlayer.scale.set(0.4)
       this.unicornioPlayer.animations.add('walk', [0,1], 1.8, true);
+
+            //cereando grupo vallas
+      this.vallas = this.add.group();
+      this.vallas.enableBody = true;
+      this.game.physics.enable(this.vallas, Phaser.Physics.ARCADE);
+      this.createVallas();  
 
       this.itemBox = this.add.sprite(40, 570,'itemBox');
       this.itemBox.fixedToCamera = true;
@@ -94,9 +100,6 @@
       this.game.physics.enable(this.unicornioPlayer, Phaser.Physics.ARCADE);
 
       this.unicornioPlayer.body.immovable = true;
-
-      this.degradado = this.add.sprite(0,0,'degradado');
-      this.degradado.fixedToCamera = true;
 
       this.giro90grados = 'El laberinto dira 90º  - 1 cuarto de vuelta';
       this.giro180grados = 'El laberinto gira 180º - 2 cuartos de vuelta';
@@ -156,6 +159,9 @@
       this.respuesta2 = false;
       this.respuesta3 = false;
 
+      this.degradado = this.add.sprite(0,0,'degradado');
+      this.degradado.fixedToCamera = true;
+
       this.negro = this.add.sprite(0,0, 'negro');
       this.negro.fixedToCamera = true;
       this.negro.exists = true;
@@ -164,20 +170,15 @@
       var that = this;
       setTimeout(function(){ that.negro.exists = false;}, 250);
 
-
-      //Creando grupo vallas
-      this.vallas = this.add.group();
-      this.vallas.enableBody = true;
-      this.game.physics.enable(this.vallas, Phaser.Physics.ARCADE);
-
-      this.createVallas();
       this.input.onDown.add(this.onDown, this);
+
 
       //Espadita pruebas
       
       this.sword = this.add.sprite(this.player.x, this.player.y, 'sword');
       this.sword.alpha = 0;
       this.game.physics.enable(this.sword,Phaser.Physics.ARCADE);
+
     },
 
     update: function () {
@@ -240,6 +241,7 @@
         }
       }
     },
+
     createVallas: function(){
       var valla1= this.vallas.create(5579, 3598,'horizontalFence');
       valla1.anchor.setTo(0.5,0.5);

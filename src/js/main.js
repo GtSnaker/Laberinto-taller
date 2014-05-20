@@ -11,7 +11,8 @@ window.onload = function () {
   game.state.add('game', ns.Game);
   game.state.add('forest', ns.Forest);
   game.state.add('shadow', ns.Shadow);
-  game.state.add('electricity', ns.Electricity)
+  game.state.add('electricity', ns.Electricity);
+  game.state.add('inferno', ns.Inferno)
 
   game.state.start('boot');
 };
