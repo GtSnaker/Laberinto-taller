@@ -18,19 +18,19 @@
       this.map = this.game.add.tilemap('mapGreen');
       this.map.addTilesetImage('tilesGreen');
 
-      // this.map.setCollision(1);
-      // this.map.setCollision(2);
-      // this.map.setCollision(3);
-      // this.map.setCollision(4);
-      // this.map.setCollision(6);
-      // this.map.setCollision(7);
-      // this.map.setCollision(8);
-      // this.map.setCollision(9);
+      //this.map.setCollision(1);
+       //this.map.setCollision(2);
+       //this.map.setCollision(3);
+       // this.map.setCollision(4);
+      //  this.map.setCollision(7);
+      //  this.map.setCollision(8);
+      //  this.map.setCollision(6);
+      //  this.map.setCollision(9);
       // this.map.setCollision(10);
-      // this.map.setCollision(11);
-      // this.map.setCollision(12);
-      // this.map.setCollision(13);
-      // this.map.setCollision(14);
+      //  this.map.setCollision(11);
+      //  this.map.setCollision(12);
+      //  this.map.setCollision(13);
+      //  this.map.setCollision(14);
 
       this.jugando = true;
 
@@ -55,7 +55,7 @@
         this.torchItem.exists = true;
       }
       else{
-        this.torchItem.exists = false;
+        this.torchItem.exists = true;
       }
 
       this.box = this.add.sprite(x, y, 'textBox');
@@ -164,15 +164,23 @@
       var that = this;
       setTimeout(function(){ that.negro.exists = false;}, 250);
 
+
+      //Creando grupo vallas
+      this.vallas = this.add.group();
+      this.vallas.enableBody = true;
+      this.game.physics.enable(this.vallas, Phaser.Physics.ARCADE);
+
+      this.createVallas();
       this.input.onDown.add(this.onDown, this);
     },
 
     update: function () {
+      this.physics.arcade.collide(this.vallas, this.player, this.EvaluateKillValla, null, this);
       this.physics.arcade.collide(this.player, this.layer);
       this.physics.arcade.collide(this.player, this.unicornioPlayer);
       this.unicornioPlayer.animations.play('walk');
 
-      if (this.jugando) {  
+      if (this.jugando) {
         this.moveChar();
         this.changeState();
       }
@@ -202,6 +210,41 @@
           this.game.state.start('game');
         }
       }
+    },
+    createVallas: function(){
+      var valla1= this.vallas.create(5579, 3598,'horizontalFence');
+      valla1.anchor.setTo(0.5,0.5);
+      valla1.body.immovable = true;
+      var valla2 = this.vallas.create(5033,4626, 'verticalFence');
+      valla2.anchor.setTo(0.5,0.5);
+      valla2.body.immovable = true;
+      var valla3 = this.vallas.create(5220, 3598, 'horizontalFence');
+      valla3.anchor.setTo(0.5,0.5);
+      valla3.body.immovable = true;
+      var valla4 = this.vallas.create(4846, 3902, 'verticalFence');
+      valla4.anchor.setTo(0.5);
+      valla4.body.immovable = true;
+      var valla5 = this.vallas.create(1497,2726, 'horizontalFence');
+      valla5.anchor.setTo(0.5,0.5);
+      valla5.body.immovable =true;
+      var valla6 = this.vallas.create(1258, 3386, 'horizontalFence');
+      valla6.anchor.setTo(0.5, 0.5);
+      valla6.body.immovable = true;
+      var valla7 = this.vallas.create(730, 3299, 'verticalFence');
+      valla7.anchor.setTo(0.5, 0.5);
+      valla7.body.immovable = true;
+      var valla8 = this.vallas.create(565, 1920, 'verticalFence');
+      valla8.anchor.setTo = true;
+      valla8.body.immovable = true;
+      var valla9 = this.vallas.create(5802, 1381, 'horizontalFence');
+      valla9.anchor.setTo(0.5,0.5);
+      valla9.body.immovable = true;
+      var valla10 = this.vallas.create(5462, 790, 'horizontalFence');
+      valla10.anchor.setTo(0.5,0.5);
+      valla10.body.immovable = true;
+      var valla11 = this.vallas.create(5131, 1602, 'verticalFence');
+      valla11.anchor.setTo(0.5,0.5);
+      valla11.body.immovable = true;
     },
 
     moveChar:function(){
@@ -278,8 +321,20 @@
       if (!(this.input.keyboard.isDown(Phaser.Keyboard.LEFT)) && !(this.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) && !(this.input.keyboard.isDown(Phaser.Keyboard.UP)) && !(this.input.keyboard.isDown(Phaser.Keyboard.DOWN)) ) {
         this.player.animations.play(this.animationNow);
       }
+      
+      if(this.input.keyboard.isDown(Phaser.Keyboard.T)) {
+        console.log(this.player.x);
+        console.log(this.player.y);
+      }
     },
+    EvaluateKillValla: function(_player, _valla){
+      if(this.input.keyboard.isDown(Phaser.Keyboard.E)) {
+        //Animacion de la valla.
+        _valla.kill();
 
+
+      }
+    },
     //FUNCION QUE HACE QUE EL TEXTO SE MUEVA POCO A POCO
     textizador: function (texto, tiempo) {
       this.ncaracteres = texto.length;
@@ -501,3 +556,5 @@
   window['laberinto'].Forest = Forest;
 
 }());
+//srap
+//SHS7/4332139

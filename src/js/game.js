@@ -17,19 +17,19 @@
       this.map = this.game.add.tilemap('map');
       this.map.addTilesetImage('tiles');
       
-      // this.map.setCollision(1);
-      // this.map.setCollision(2);
-      // this.map.setCollision(3);
-      // this.map.setCollision(4);
-      // this.map.setCollision(6);
-      // this.map.setCollision(7);
-      // this.map.setCollision(8);
-      // this.map.setCollision(9);
-      // this.map.setCollision(10);
-      // this.map.setCollision(11);
-      // this.map.setCollision(12);
-      // this.map.setCollision(13);
-      // this.map.setCollision(14);
+      this.map.setCollision(1);
+       this.map.setCollision(2);
+       this.map.setCollision(3);
+       this.map.setCollision(4);
+       this.map.setCollision(6);
+       this.map.setCollision(7);
+       this.map.setCollision(8);
+       this.map.setCollision(9);
+       this.map.setCollision(10);
+       this.map.setCollision(11);
+       this.map.setCollision(12);
+       this.map.setCollision(13);
+       this.map.setCollision(14);
 
       this.layer = this.map.createLayer('Capa de Patrones 1');     
       this.layer.resizeWorld();
@@ -257,7 +257,7 @@
         this.player.animations.play('up');
         this.animationNow = 'stopUp';
         this.player.body.velocity.y = -600;
-      }  
+      }
       else if (this.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
         {
           this.player.animations.play('right');
