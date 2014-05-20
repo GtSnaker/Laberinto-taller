@@ -17,19 +17,19 @@
       this.map = this.game.add.tilemap('map');
       this.map.addTilesetImage('tiles');
       
-      this.map.setCollision(1);
-       this.map.setCollision(2);
-       this.map.setCollision(3);
-       this.map.setCollision(4);
-       this.map.setCollision(6);
-       this.map.setCollision(7);
-       this.map.setCollision(8);
-       this.map.setCollision(9);
-       this.map.setCollision(10);
-       this.map.setCollision(11);
-       this.map.setCollision(12);
-       this.map.setCollision(13);
-       this.map.setCollision(14);
+       // this.map.setCollision(1);
+       // this.map.setCollision(2);
+       // this.map.setCollision(3);
+       // this.map.setCollision(4);
+       // this.map.setCollision(6);
+       // this.map.setCollision(7);
+       // this.map.setCollision(8);
+       // this.map.setCollision(9);
+       // this.map.setCollision(10);
+       // this.map.setCollision(11);
+       // this.map.setCollision(12);
+       // this.map.setCollision(13);
+       // this.map.setCollision(14);
 
       this.layer = this.map.createLayer('Capa de Patrones 1');     
       this.layer.resizeWorld();
@@ -73,6 +73,19 @@
           case 2:
             this.player = this.add.sprite(5156, 6063, 'player');
             this.animationNow = 'stopUp';
+          break;
+        }
+      }
+      else if(window['laberinto'].Global.fromInferno) {
+        switch(window['laberinto'].Global.fromInfernoToGame) {
+          case 2:
+            this.player = this.add.sprite(1200, 58, 'player');
+            this.animationNow = 'stopDown';
+          break;
+
+          case 1:
+            this.player = this.add.sprite(4920, 58, 'player');
+            this.animationNow = 'stopDown';
           break;
         }
       }
@@ -197,6 +210,17 @@
         if (this.player.x < 4000) {
           window['laberinto'].Global.fromGameToElectricity = 2,
           this.game.state.start('electricity');
+        }
+      }
+
+      if (this.player.y < 50) {
+        if (this.player.x < 2000) {
+          window['laberinto'].Global.fromGameToInferno = 1,
+          this.game.state.start('inferno');
+        }
+        if (this.player.x > 2000) {
+          window['laberinto'].Global.fromGameToInferno = 2,
+          this.game.state.start('inferno');
         }
       }
 

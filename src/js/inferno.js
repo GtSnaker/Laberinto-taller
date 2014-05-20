@@ -66,12 +66,12 @@
 
       switch(window['laberinto'].Global.fromInfernoToGame) {
         case 2:
-        this.player = this.add.sprite(50, 2158, 'player');
-        this.animationNow = 'stopRigt';
+        this.player = this.add.sprite(1202, 6050, 'player');
+        this.animationNow = 'stopUp';
         break;
         case 1:
-        this.player = this.add.sprite(50, 3850, 'player');
-        this.animationNow = 'stopRigt';
+        this.player = this.add.sprite(4920, 6050, 'player');
+        this.animationNow = 'stopUp';
         break;
         default: this.player = this.add.sprite(2380, 2400, 'player');
         this.animationNow = 'stopDown';
@@ -173,6 +173,12 @@
       this.physics.arcade.collide(this.player, this.diabloPlayer);
       this.diabloPlayer.animations.play('walk');
 
+
+      if(this.input.keyboard.isDown(Phaser.Keyboard.T)) {
+        console.log(this.player.x);
+        console.log(this.player.y);
+      }
+
       if (this.jugando) {  
         this.moveChar();
         this.changeState();
@@ -191,15 +197,15 @@
     },
 
     changeState:function(){
-      if (this.player.x <20) {
-        if (this.player.y> 3000){
+      if (this.player.y > 6070) {
+        if (this.player.x < 3500){
           window['laberinto'].Global.fromInferno = true;
-          window['laberinto'].Global.fromGameToInferno = 2;
+          window['laberinto'].Global.fromInfernoToGame = 2;
           this.game.state.start('game');        
         }
-        if (this.player.y <3000){
+        if (this.player.x > 3500){
           window['laberinto'].Global.fromInferno = true;
-          window['laberinto'].Global.fromGameToInferno = 1; 
+          window['laberinto'].Global.fromInfernoToGame = 1; 
           this.game.state.start('game');
         }
       }
