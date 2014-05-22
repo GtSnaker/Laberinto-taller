@@ -30,11 +30,11 @@
       this.load.image('orbBox', 'assets/cajaOrbes.png');
       this.load.image('negro', 'assets/negro.png');
       this.load.image('pcBig', 'assets/pcChar.png');
-      this.load.image('horizontalFence', 'assets/vallaHorizontal.png');
       this.load.image('verticalFence', 'assets/vallaVertical.png');
       this.load.image('sword', 'assets/sword.png');
       this.load.image('diabloChar', 'assets/diabloChar.png');
-
+      this.load.image('horizontalFence', 'assets/vallaHorizontal.png');
+      
       this.load.spritesheet('player', 'assets/jimbo.png', 39.5, 52.7);
       this.load.spritesheet('unicornioPlayer', 'assets/unicornio.png', 295, 446);
       this.load.spritesheet('slenderBoy', 'assets/slenderBoy.png', 339, 324);

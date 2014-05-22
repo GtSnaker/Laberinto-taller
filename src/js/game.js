@@ -10,26 +10,24 @@
   Game.prototype = {
 
     create: function () {
-      var x = this.game.width / 2
-        , y = this.game.height / 2;
-
+      
       this.game.physics.startSystem(Phaser.Physics.ARCADE);
       this.map = this.game.add.tilemap('map');
       this.map.addTilesetImage('tiles');
       
-       // this.map.setCollision(1);
-       // this.map.setCollision(2);
-       // this.map.setCollision(3);
-       // this.map.setCollision(4);
-       // this.map.setCollision(6);
-       // this.map.setCollision(7);
-       // this.map.setCollision(8);
-       // this.map.setCollision(9);
-       // this.map.setCollision(10);
-       // this.map.setCollision(11);
-       // this.map.setCollision(12);
-       // this.map.setCollision(13);
-       // this.map.setCollision(14);
+       this.map.setCollision(1);
+       this.map.setCollision(2);
+       this.map.setCollision(3);
+       this.map.setCollision(4);
+       this.map.setCollision(6);
+       this.map.setCollision(7);
+       this.map.setCollision(8);
+       this.map.setCollision(9);
+       this.map.setCollision(10);
+       this.map.setCollision(11);
+       this.map.setCollision(12);
+       this.map.setCollision(13);
+       this.map.setCollision(14);
 
       this.layer = this.map.createLayer('Capa de Patrones 1');     
       this.layer.resizeWorld();
@@ -55,7 +53,7 @@
           case 1:
             this.player = this.add.sprite(6070, 3950, 'player');
             this.animationNow = 'stopLeft';
-          break;
+            break;
 
           case 2:
             this.player = this.add.sprite(6070, 2154, 'player');
@@ -110,17 +108,17 @@
       this.player.animations.add('stopLeft',[3], 8, true);
       //this.animationNow = 'stopDown';
 
-      this.deku = this.add.sprite(2100, 2440, 'deku');
-      this.deku.animations.add('move', [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], 3, true);
+      //this.deku = this.add.sprite(2100, 2440, 'deku');
+      //this.deku.animations.add('move', [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], 3, true);
         
       this.input.onDown.add(this.onInputDown, this);
       
       this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
-      this.game.physics.enable(this.deku, Phaser.Physics.ARCADE);
+      //this.game.physics.enable(this.deku, Phaser.Physics.ARCADE);
       this.game.physics.enable(this.torch, Phaser.Physics.ARCADE);
       //this.game.physics.enable(this.rock1, Phaser.Physics.ARCADE);
 
-      this.deku.body.immovable = true;
+      //this.deku.body.immovable = true;
       this.torch.body.immovable = true;
 
       this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
@@ -170,9 +168,9 @@
         this.torchItem.exists = true;
       }, null, this);
       this.physics.arcade.collide(this.player, this.layer);
-      this.physics.arcade.collide(this.player, this.deku);
+     //this.physics.arcade.collide(this.player, this.deku);
 
-      this.deku.animations.play('move');
+      //this.deku.animations.play('move');
       this.torch.animations.play('move');
 
       if(this.input.keyboard.isDown(Phaser.Keyboard.T)) {
@@ -224,13 +222,13 @@
         }
       }
 
-      if( this.input.keyboard.isDown(Phaser.Keyboard.E) &&
-          this.deku.exists &&
-          window['laberinto'].Global.torch &&
-          this.distance(this.player, this.deku) < 90)
-          {
-            this.deku.exists = false;
-          }
+      // if( this.input.keyboard.isDown(Phaser.Keyboard.E) &&
+      //     this.deku.exists &&
+      //     window['laberinto'].Global.torch &&
+      //     this.distance(this.player, this.deku) < 90)
+      //     {
+      //       this.deku.exists = false;
+      //     }
 
       this.moveChar();
     },
@@ -321,7 +319,7 @@
       this.timePerChar = tiempo / this.ncaracteres;
       if (this.ntotal < this.ncaracteres){
         if ((this.time.now - this.timeAhorita) > this.timePerChar) {
-          this.textoTotal += texto[this.ntotal];
+          this.textoTot21al += texto[this.ntotal];
           this.ntotal++;
           this.timeAhorita = this.time.now;
         }
@@ -339,3 +337,4 @@
   window['laberinto'].Game = Game;
 
 }());
+//setCollision>valla//fixedToCamera.runner

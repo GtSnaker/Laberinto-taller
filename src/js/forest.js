@@ -18,19 +18,19 @@
       this.map = this.game.add.tilemap('mapGreen');
       this.map.addTilesetImage('tilesGreen');
 
-      //this.map.setCollision(1);
-      //this.map.setCollision(2);
-      //this.map.setCollision(3);
-      //this.map.setCollision(4);
-      //this.map.setCollision(7);
-      //this.map.setCollision(8);
-      //this.map.setCollision(6);
-      //this.map.setCollision(9);
-      //this.map.setCollision(10);
-      //this.map.setCollision(11);
-      //this.map.setCollision(12);
-      //this.map.setCollision(13);
-      //this.map.setCollision(14);
+      this.map.setCollision(1);
+      this.map.setCollision(2);
+      this.map.setCollision(3);
+      this.map.setCollision(4);
+      this.map.setCollision(7);
+      this.map.setCollision(8);
+      this.map.setCollision(6);
+      this.map.setCollision(9);
+      this.map.setCollision(10);
+      this.map.setCollision(11);
+      this.map.setCollision(12);
+      this.map.setCollision(13);
+      this.map.setCollision(14);
 
       this.jugando = true;
 
@@ -61,7 +61,7 @@
         this.torchItem.exists = true;
       }
       else{
-        this.torchItem.exists = true;
+        this.torchItem.exists = false;
       }
 
       this.box = this.add.sprite(x, y, 'textBox');
@@ -591,5 +591,3 @@
   window['laberinto'].Forest = Forest;
 
 }());
-//srap
-//SHS7/4332139
